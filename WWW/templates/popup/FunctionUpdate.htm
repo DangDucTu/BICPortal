@@ -1,0 +1,90 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupUpdateFunction" class="_divPopup_border _divPopup_wrapperMain" style="width: 410px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Thêm mới chức năng
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Đóng">&nbsp;</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content_popup">
+            <div class="form">
+                <div class="row">
+                    <ul>
+                        <li class="text" style="width: 120px">Chức năng cha:<input type="hidden" id="hfFunctionId" /></li>
+                        <li><select style="width: 216px" id="slFunction" tabindex="1" class="input">
+                                <option value="0">--[Chức năng cha]--</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text" style="width: 120px">Tên chức năng:</li>
+                        <li><input type="text" id="txtName" tabindex="2" style="width: 210px;" maxlength="100" /></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text" style="width: 120px">URL:</li>
+                        <li><input type="text" id="txtUrl" tabindex="3" maxlength="255" style="width: 210px;" /></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text" style="width: 120px">Trạng thái:</li>
+                        <li><input type="radio" value="Hoạt động" id="rdActive" checked="checked" title="Hoạt động"
+                                   tabindex="5" name="Status" />
+                            <label for="rdActive" style="cursor: pointer;"> Hoạt động</label>
+                        </li>
+                        <li>
+                            <input type="radio" value="Khóa" id="rdDeactive" title="Khóa" name="Status" tabindex="6"
+                                   style="float: none;" />
+                            <label for="rdDeactive" style="cursor: pointer;"> Khóa</label>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text" style="width: 120px">Hiển thị Menu:</li>
+                        <li>
+                            <input type="radio" value="Hoạt động" id="rdShowInMenu" checked="checked" title="Hiển thị trên  menu"
+                                   tabindex="7" name="ShowMenu" />
+                            <label for="rdShowInMenu" style="cursor: pointer;"> Có</label>
+                        </li>
+                        <li>
+                            <input type="radio" value="Khóa" id="rdNotShowInMenu" title="Không hiển thị trên menu"
+                                   name="ShowMenu" tabindex="8" style="float: none;" />
+                            <label class="" for="rdNotShowInMenu" style="cursor: pointer;"> Không</label>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text" style="width: 120px">Thứ tự:</li>
+                        <li style="min-width: 50px"><input type="text" id="txtOrder" style="width: 40px;" value="1" tabindex="9" /></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>                
+
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li><a id="popup_save" href="javascript:;">Cập nhật</a></li>
+                <li><a id="popup_cancel" href="javascript:;">Đóng</a></li>
+                </ul>
+            <div style="clear: both;"></div>
+        </div>
+        <div style="clear: both;">
+        </div>
+    </div>
+</div>

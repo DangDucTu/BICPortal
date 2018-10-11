@@ -1,0 +1,21 @@
+﻿{#foreach $T as lstDailyUpdate}
+    <tr>
+        <td style="text-align: left">{$T.lstDailyUpdate.Item}</td>
+        <td>{$T.lstDailyUpdate.Securities==null?'':$T.lstDailyUpdate.Securities.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.Business==null?'':$T.lstDailyUpdate.Business.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.Unsecured==null?'':$T.lstDailyUpdate.Unsecured.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.Auto==null?'':$T.lstDailyUpdate.Auto.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.Consumption==null?'':$T.lstDailyUpdate.Consumption.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.Home==null?'':$T.lstDailyUpdate.Home.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.Passbook==null?'':$T.lstDailyUpdate.Passbook.format(0, 3, '.', ',')}</td>
+        <td><strong>{$T.lstDailyUpdate.Total1==0?'':$T.lstDailyUpdate.Total1.format(0, 3, '.', ',')}</strong></td>
+        <td>{$T.lstDailyUpdate.LocalDebit==null?'':$T.lstDailyUpdate.LocalDebit.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.MasterCredit==null?'':$T.lstDailyUpdate.MasterCredit.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.CreditCard==null?'':$T.lstDailyUpdate.CreditCard.format(0, 3, '.', ',')}</td>
+        <td><strong>{$T.lstDailyUpdate.Total3==0?'':$T.lstDailyUpdate.Total3.format(0, 3, '.', ',')}</strong></td>
+        <td>{$T.lstDailyUpdate.CurrentAccount==null?'':$T.lstDailyUpdate.CurrentAccount.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.TermDeposit==null?'':$T.lstDailyUpdate.TermDeposit.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstDailyUpdate.Others==null?'':$T.lstDailyUpdate.Others.format(0, 3, '.', ',')}</td>
+        <td><strong>{$T.lstDailyUpdate.Total2==0?'':$T.lstDailyUpdate.Total2.format(0, 3, '.', ',')}</strong></td>        
+    </tr>
+{#/for}

@@ -1,0 +1,174 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkFlowBLL", "WorkFlowBLL\WorkFlowBLL.csproj", "{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{3DA07955-F5B1-4F63-87AD-35A58FB99732}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{722D307C-73CA-4595-A5A2-DFE7F492CB8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_framework", "00_framework", "{7183F32E-1C50-4CB8-8C9A-EC81FFA3BC14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_dataLayer", "01_dataLayer", "{DAA8605D-79AD-4C8B-9974-0AE6316DC130}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContext", "DataContext\DataContext.csproj", "{050EB842-6011-43CD-89FF-3850137FBD4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_businessLayer", "02_businessLayer", "{1DA7CA4F-8F05-4811-92A4-80CE9BA374F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_presentLayer", "03_presentLayer", "{8C462835-9C54-48E0-A2B6-EE87136A4FB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityBLL", "EntityBLL\EntityBLL.csproj", "{32161730-B4B0-4F56-B9C1-2D742C2CD459}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WWW", "WWW", "{EAED901B-96C5-4F78-AECC-E449CED93997}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}|WorkFlowBLL.dll;{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}|Config.dll;{050EB842-6011-43CD-89FF-3850137FBD4B}|DataContext.dll;{3DA07955-F5B1-4F63-87AD-35A58FB99732}|Library.dll;{722D307C-73CA-4595-A5A2-DFE7F492CB8D}|Utils.dll;{32161730-B4B0-4F56-B9C1-2D742C2CD459}|EntityBLL.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/WWW"
+		Debug.AspNetCompiler.PhysicalPath = "WWW\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WWW\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WWW"
+		Release.AspNetCompiler.PhysicalPath = "WWW\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WWW\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "8085"
+		VWDDynamicPort = "false"
+		VWDVirtualPath = "/"
+		SlnRelativePath = "WWW\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{166B77A9-C412-4AE8-BC27-A6B3F0737436}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs40
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Config\\Config.csproj
+		SccProjectTopLevelParentUniqueName1 = QuanLyNganSach.sln
+		SccProjectName1 = Config
+		SccLocalPath1 = Config
+		SccProjectUniqueName2 = DataContext\\DataContext.csproj
+		SccProjectTopLevelParentUniqueName2 = QuanLyNganSach.sln
+		SccProjectName2 = DataContext
+		SccLocalPath2 = DataContext
+		SccProjectUniqueName3 = EntityBLL\\EntityBLL.csproj
+		SccProjectTopLevelParentUniqueName3 = QuanLyNganSach.sln
+		SccProjectName3 = EntityBLL
+		SccLocalPath3 = EntityBLL
+		SccProjectUniqueName4 = Library\\Library.csproj
+		SccProjectTopLevelParentUniqueName4 = QuanLyNganSach.sln
+		SccProjectName4 = Library
+		SccLocalPath4 = Library
+		SccProjectUniqueName5 = Utils\\Utils.csproj
+		SccProjectTopLevelParentUniqueName5 = QuanLyNganSach.sln
+		SccProjectName5 = Utils
+		SccLocalPath5 = Utils
+		SccProjectUniqueName6 = WorkFlowBLL\\WorkFlowBLL.csproj
+		SccProjectTopLevelParentUniqueName6 = QuanLyNganSach.sln
+		SccProjectName6 = WorkFlowBLL
+		SccLocalPath6 = WorkFlowBLL
+		SccWebProject7 = true
+		SccProjectUniqueName7 = WWW
+		SccProjectTopLevelParentUniqueName7 = QuanLyNganSach.sln
+		SccProjectName7 = WWW
+		SccLocalPath7 = WWW
+		SccProjectEnlistmentChoice7 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}.Debug|x86.ActiveCfg = Debug|x86
+		{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}.Debug|x86.Build.0 = Debug|x86
+		{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}.Release|x86.ActiveCfg = Release|x86
+		{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF}.Release|x86.Build.0 = Release|x86
+		{3DA07955-F5B1-4F63-87AD-35A58FB99732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA07955-F5B1-4F63-87AD-35A58FB99732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA07955-F5B1-4F63-87AD-35A58FB99732}.Debug|x86.ActiveCfg = Debug|x86
+		{3DA07955-F5B1-4F63-87AD-35A58FB99732}.Debug|x86.Build.0 = Debug|x86
+		{3DA07955-F5B1-4F63-87AD-35A58FB99732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA07955-F5B1-4F63-87AD-35A58FB99732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA07955-F5B1-4F63-87AD-35A58FB99732}.Release|x86.ActiveCfg = Release|x86
+		{3DA07955-F5B1-4F63-87AD-35A58FB99732}.Release|x86.Build.0 = Release|x86
+		{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}.Debug|x86.ActiveCfg = Debug|x86
+		{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}.Debug|x86.Build.0 = Debug|x86
+		{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}.Release|x86.ActiveCfg = Release|x86
+		{6AA4E16C-E0DF-4CFD-BA64-4604D742A906}.Release|x86.Build.0 = Release|x86
+		{722D307C-73CA-4595-A5A2-DFE7F492CB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{722D307C-73CA-4595-A5A2-DFE7F492CB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{722D307C-73CA-4595-A5A2-DFE7F492CB8D}.Debug|x86.ActiveCfg = Debug|x86
+		{722D307C-73CA-4595-A5A2-DFE7F492CB8D}.Debug|x86.Build.0 = Debug|x86
+		{722D307C-73CA-4595-A5A2-DFE7F492CB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{722D307C-73CA-4595-A5A2-DFE7F492CB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{722D307C-73CA-4595-A5A2-DFE7F492CB8D}.Release|x86.ActiveCfg = Release|x86
+		{722D307C-73CA-4595-A5A2-DFE7F492CB8D}.Release|x86.Build.0 = Release|x86
+		{050EB842-6011-43CD-89FF-3850137FBD4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{050EB842-6011-43CD-89FF-3850137FBD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{050EB842-6011-43CD-89FF-3850137FBD4B}.Debug|x86.ActiveCfg = Debug|x86
+		{050EB842-6011-43CD-89FF-3850137FBD4B}.Debug|x86.Build.0 = Debug|x86
+		{050EB842-6011-43CD-89FF-3850137FBD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{050EB842-6011-43CD-89FF-3850137FBD4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{050EB842-6011-43CD-89FF-3850137FBD4B}.Release|x86.ActiveCfg = Release|x86
+		{050EB842-6011-43CD-89FF-3850137FBD4B}.Release|x86.Build.0 = Release|x86
+		{32161730-B4B0-4F56-B9C1-2D742C2CD459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32161730-B4B0-4F56-B9C1-2D742C2CD459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32161730-B4B0-4F56-B9C1-2D742C2CD459}.Debug|x86.ActiveCfg = Debug|x86
+		{32161730-B4B0-4F56-B9C1-2D742C2CD459}.Debug|x86.Build.0 = Debug|x86
+		{32161730-B4B0-4F56-B9C1-2D742C2CD459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32161730-B4B0-4F56-B9C1-2D742C2CD459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32161730-B4B0-4F56-B9C1-2D742C2CD459}.Release|x86.ActiveCfg = Release|x86
+		{32161730-B4B0-4F56-B9C1-2D742C2CD459}.Release|x86.Build.0 = Release|x86
+		{EAED901B-96C5-4F78-AECC-E449CED93997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAED901B-96C5-4F78-AECC-E449CED93997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAED901B-96C5-4F78-AECC-E449CED93997}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EAED901B-96C5-4F78-AECC-E449CED93997}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAED901B-96C5-4F78-AECC-E449CED93997}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{EAED901B-96C5-4F78-AECC-E449CED93997}.Release|x86.ActiveCfg = Debug|Any CPU
+		{EAED901B-96C5-4F78-AECC-E449CED93997}.Release|x86.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B5BFBC73-FC05-46DD-A4B7-AFDDBB5AD0FF} = {1DA7CA4F-8F05-4811-92A4-80CE9BA374F9}
+		{3DA07955-F5B1-4F63-87AD-35A58FB99732} = {7183F32E-1C50-4CB8-8C9A-EC81FFA3BC14}
+		{6AA4E16C-E0DF-4CFD-BA64-4604D742A906} = {7183F32E-1C50-4CB8-8C9A-EC81FFA3BC14}
+		{722D307C-73CA-4595-A5A2-DFE7F492CB8D} = {7183F32E-1C50-4CB8-8C9A-EC81FFA3BC14}
+		{050EB842-6011-43CD-89FF-3850137FBD4B} = {DAA8605D-79AD-4C8B-9974-0AE6316DC130}
+		{32161730-B4B0-4F56-B9C1-2D742C2CD459} = {1DA7CA4F-8F05-4811-92A4-80CE9BA374F9}
+		{EAED901B-96C5-4F78-AECC-E449CED93997} = {8C462835-9C54-48E0-A2B6-EE87136A4FB8}
+	EndGlobalSection
+EndGlobal

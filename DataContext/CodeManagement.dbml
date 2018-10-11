@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VPBReport" Class="CodeManagementDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=VPBReport;User ID=sa" SettingsObjectName="DataContext.Properties.Settings" SettingsPropertyName="VPBReportConnectionString4" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspCodeListCount" Method="uspCodeListCount">
+    <Parameter Name="account" Type="System.String" DbType="NVarChar(55)" />
+    <ElementType Name="uspCodeListCountResult">
+      <Column Name="FIELD_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FIELD" Type="System.String" DbType="VarChar(14) NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+      <Column Name="NO_CODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCodelistDelete" Method="uspCodelistDelete">
+    <Parameter Name="account" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="code" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="field" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspCodeListEdit" Method="uspCodeListEdit">
+    <Parameter Name="account" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="code_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <Parameter Name="field" Type="System.Int32" DbType="Int" />
+    <Parameter Name="segment" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="effective_date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="requester" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspCodeListGetFieldList" Method="uspCodeListGetFieldList">
+    <ElementType Name="uspCodeListGetFieldListResult">
+      <Column Name="FIELD_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FIELD_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCodeListGetType" Method="uspCodeListGetType">
+    <Parameter Name="field_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspCodeListGetTypeResult">
+      <Column Name="TYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TYPE_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCodeListInsert" Method="uspCodeListInsert">
+    <Parameter Name="account" Type="System.String" DbType="NVarChar(55)" />
+    <Parameter Name="code" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <Parameter Name="field" Type="System.Int32" DbType="Int" />
+    <Parameter Name="segment" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="effective_date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="requester" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspCodeListGetInfo" Method="uspCodeListGetInfo">
+    <Parameter Name="code_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspCodeListGetInfoResult">
+      <Column Name="CODE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TYPE_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FIELD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FIELD_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SEGMENT" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="EFFECTIVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="REQUESTER" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="STATUS_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCodeListGetList" Method="uspCodeListGetList">
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <Parameter Name="field" Type="System.Int32" DbType="Int" />
+    <Parameter Name="requester" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="segment" Type="System.String" DbType="NVarChar(125)" />
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="pagesize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="page" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOTALRECORD" Parameter="tOTALRECORD" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="uspCodeListGetListResult">
+      <Column Name="RN" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TYPE_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FIELD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FIELD_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SEGMENT" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="EFFECTIVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="REQUESTER" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

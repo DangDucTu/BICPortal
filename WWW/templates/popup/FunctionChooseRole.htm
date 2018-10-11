@@ -1,0 +1,51 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupChooseRoleOfFunction" class="_divPopup_border _divPopup_wrapperMain"
+    style="width: 410px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Chọn nhóm người dùng
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Đóng">&nbsp;</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content_popup">
+            <div class="form">
+                <table class="table" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px">
+                                <input type="checkbox" class="checkallRole" />
+                            </th>
+                            <th>
+                                Tên nhóm
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbdRoleList">
+                        {#foreach $T as role}
+                        <tr>
+                            <td class="selected">
+                                <input type="checkbox" class="cbRecord" id="Role{$T.role.RoleId}" />
+                            </td>
+                            <td class="left last">
+                                {$T.role.Name}
+                            </td>
+                        </tr>
+                        {#/for}
+                    </tbody>
+                </table>
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li><a id="popup_save" href="javascript:;">Cập nhật</a></li>
+                <li><a id="popup_cancel" href="javascript:;">Đóng</a></li>
+                </ul>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</div>

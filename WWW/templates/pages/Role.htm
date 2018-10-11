@@ -1,0 +1,55 @@
+﻿<table class="table" width="100%" style="border: 1px solid #99BBE8">
+    <thead>
+        <tr>
+            <th style="width: 40px">
+                STT
+            </th>
+            <th>
+                Group Name
+            </th>
+<!--            <th style="width: 120px">
+                Số người dùng
+            </th>-->
+            <th style="width: 80px">
+                Status
+            </th>
+            <th  style="width: 155px">
+                Choose Function
+            </th>
+        </tr>
+    </thead>
+    <tbody id="tbRoleList">
+        {#foreach $T as role}
+        <tr class="{COMMON.getRowStyle($T.role$index + 1)}">
+            <td id="Stt">
+                
+            </td>
+            <td>
+               <a href="/pages/RoleInfo.aspx?Id={$T.role.RoleId}" title="Xem thông tin nhóm chức năng">{$T.role.Name}</a>
+            </td>
+<!--            <td >
+                {$T.role.TotalUser}
+            </td>-->
+            <td >
+                {#if $T.role.Status==1} Active {#else} Locked {#/if}
+            </td>
+            <td>
+                <a class="aContextFunction" href="javascript:void(0)">Function</a>
+                <div class="divContextFunction">
+                    <ul>
+                        <li><a href="javascript:void(0)" onclick="Pages_SystemRole.functionOnItem(1,{$T.role.RoleId})">View Info</a></li>
+                        <li><a href="javascript:void(0)" onclick="Pages_SystemRole.functionOnItem(2,{$T.role.RoleId})">Edit</a></li>
+                      <!--  {#if ($T.role.Status==1)}
+                            <li><a href="javascript:void(0)" onclick="Pages_SystemRole.functionOnItem(4,{$T.role.RoleId})">Khóa</a></li>
+                        {#else}
+                            <li><a href="javascript:void(0)" onclick="Pages_SystemRole.functionOnItem(5,{$T.role.RoleId})">Kích hoạt</a></li>
+                        {#/if} 
+                        <li style="border-top: solid 1px #EEE"><a href="javascript:void(0)" onclick="Pages_SystemRole.functionOnItem(3,{$T.role.RoleId})">Xóa</a></li>-->
+                    </ul>
+                </div>
+            </td>
+
+        </tr>
+        {#/for}
+    </tbody>
+</table>

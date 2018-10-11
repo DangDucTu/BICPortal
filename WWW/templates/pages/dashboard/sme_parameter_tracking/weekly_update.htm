@@ -1,0 +1,18 @@
+﻿{#foreach $T as lstWeeklyUpdate}
+    <tr>
+        <td style="text-align: left">{$T.lstWeeklyUpdate.Item}</td>
+        <td>{$T.lstWeeklyUpdate.ShortTerm==null?'':$T.lstWeeklyUpdate.ShortTerm.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstWeeklyUpdate.MediumAndLongTerm==null?'':$T.lstWeeklyUpdate.MediumAndLongTerm.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstWeeklyUpdate.OverDraff==null?'':$T.lstWeeklyUpdate.OverDraff.format(0, 3, '.', ',')}</td>
+        <td><strong>{$T.lstWeeklyUpdate.Total1==0?'':$T.lstWeeklyUpdate.Total1.format(0, 3, '.', ',')}</strong></td>
+        
+        <td>{$T.lstWeeklyUpdate.CreditCard==null?'':$T.lstWeeklyUpdate.CreditCard.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstWeeklyUpdate.DepositCard==null?'':$T.lstWeeklyUpdate.DepositCard.format(0, 3, '.', ',')}</td>
+        <td><strong>{$T.lstWeeklyUpdate.Total2==0?'':$T.lstWeeklyUpdate.Total2.format(0, 3, '.', ',')}</strong></td>
+
+        <td>{$T.lstWeeklyUpdate.CurrentAccount==null?'':$T.lstWeeklyUpdate.CurrentAccount.format(0, 3, '.', ',')}</td>        
+        <td>{$T.lstWeeklyUpdate.TermDeposit==null?'':$T.lstWeeklyUpdate.TermDeposit.format(0, 3, '.', ',')}</td>
+        <td>{$T.lstWeeklyUpdate.Others==null?'':$T.lstWeeklyUpdate.Others.format(0, 3, '.', ',')}</td>
+        <td><strong>{$T.lstWeeklyUpdate.Total3==0?'':$T.lstWeeklyUpdate.Total3.format(0, 3, '.', ',')}</strong></td>        
+    </tr>
+{#/for}

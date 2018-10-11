@@ -1,0 +1,194 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupUpdateReportList" class="_divPopup_border _divPopup_wrapperMain" style="width: 760px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Add New Report Request
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Close">
+                &nbsp;
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <div class="content_popup" style="float: left;">
+            <div class="content_popup" style="width: 370px; float: left; border-right: 1px solid #ddd">
+                <div class="form">
+                    <div class="row" id="divClientDivision">
+                        <ul>
+                            <li class="text">Division:</li>
+                            <li>
+                                <select tabindex="3" style="width: 180px;" class="select spanTooltip" id="ddlClientDivision" fempty="*"></select>
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row" id="divPicBICC">
+                        <ul>
+                            <li class="text">PIC From BIC:</li>
+                            <li>
+                                <select tabindex="3" style="width: 180px;" class="select spanTooltip" id="ddlPicBICC"></select>
+                                <!--<input type="text" tabindex="1" id="ddlPicBICC" style="width: 180px;" maxlength="200"
+                                       fempty="*" />-->
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li class="text">Status:</li>
+                            <li>
+                                <select tabindex="7" style="width: 180px;" class="select spanTooltip" id="ddlStatus" fempty="*">
+                                    <option value="1">Under discussion</option>
+                                    <option value="2">Implementing solution</option>
+                                    <option value="3">Finished on time</option>
+                                    <option value="4">Finished late</option>
+                                    <option value="5">Pending at discussion</option>
+                                    <option value="6">Pending at implementation</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+
+                    <div class="row" id="divCreateDate">
+                        <ul>
+                            <li class="text">Issue Creation Date:</li>
+                            <li>
+                                <input type="text" tabindex="2" id="txtCreateDate" class="spanTooltip" style="width: 186px;" maxlength="50" fempty="*" />
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row" id="divFirstFeedbackDate">
+                        <ul>
+                            <li class="text">First feedback date from DG team:</li>
+                            <li>
+                                <input type="text" tabindex="6" id="txtFirstFeedbackDate" class="spanTooltip" style="width: 186px;" maxlength="50" />
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+
+                    <div class="row" id="divSummary">
+                        <ul>
+                            <li class="text">Summary:</li>
+                            <li>
+                                <textarea tabindex="7" rows="4" cols="50" id="txtSummary" class="spanTooltip" style="width: 180px;" fempty="*" maxlength="100"></textarea>
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row" id="divDescription">
+                        <ul>
+                            <li class="text">Description:</li>
+                            <li>
+                                <textarea tabindex="7" rows="4" cols="50" id="txtDescription" class="spanTooltip" style="width: 180px;" fempty="*"></textarea>
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content_popup" style="float: left; margin-left: 10px; width: 370px;">
+                <div class="form">
+                    <div class="row" id="divIssueCode" style="display:none">
+                        <ul>
+                            <li class="text">Data issue code:</li>
+                            <li>
+                                <input type="text" tabindex="10" id="txtIssueCode" class="spanTooltip" style="width: 180px;" maxlength="200" disabled="disabled" />
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li class="text">PIC from BU/SU:</li>
+                            <li>
+                                <input type="text" tabindex="10" id="txtPicBu" class="spanTooltip" style="width: 180px;" maxlength="200" />
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row" id="divCurrentAssign">
+                        <ul>
+                            <li class="text">Current Assignee:</li>
+                            <li>
+                                <input type="text" tabindex="10" id="txtCurrAssig" class="spanTooltip" style="width: 180px;" maxlength="200" />
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row" id="divDeadline">
+                        <ul>
+                            <li class="text">Deadline:</li>
+                            <li>
+                                <input type="text" tabindex="2" id="txtDeadline" class="spanTooltip" style="width: 186px;" maxlength="50" />
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row" id="divFinishDate">
+                        <ul>
+                            <li class="text">Actual finishing date:</li>
+                            <li>
+                                <input type="text" tabindex="2" id="txtFinishDate" class="spanTooltip" style="width: 186px;" maxlength="50" />
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row" id="divAgreeSolution">
+                        <ul>
+                            <li class="text">Agreed solution:</li>
+                            <li>
+                                <textarea tabindex="7" rows="4" cols="50" class="spanTooltip" id="txtAgreeSolution" style="width: 180px;"></textarea>
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="row" id="divNote">
+                        <ul>
+                            <li class="text">Note</li>
+                            <li>
+                                <textarea tabindex="7" rows="4" cols="50" class="spanTooltip" id="txtNote" style="width: 180px;"></textarea>
+                            </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li>
+                    <input type="button" value="Update" id="popup_save" />
+                </li>
+                <li>
+                    <input type="button" value="Close" id="popup_cancel" />
+                </li>
+            </ul>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <div style="clear: both;">
+        </div>
+    </div>
+</div>

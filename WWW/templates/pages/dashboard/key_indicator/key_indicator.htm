@@ -1,0 +1,21 @@
+﻿{#foreach $T as lstKeyIndicator}
+    <tr>
+        <td>{$T.lstKeyIndicator.RowNumber}</td>     
+        <td style="text-align: left;">{pages_KeyIndicator.getIndicatorName($T.lstKeyIndicator.PIC,$T.lstKeyIndicator.Indicator,$T.lstKeyIndicator.Id)}</td>
+        <td>{$T.lstKeyIndicator.Unit}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T1,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T2,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T3,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T4,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T5,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T6,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T7,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T8,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T9,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T10,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T11,$T.lstKeyIndicator.Unit)}</td>
+        <td style="text-align: right;">{pages_KeyIndicator.getValue($T.lstKeyIndicator.T12,$T.lstKeyIndicator.Unit)}</td>
+        <td>{$T.lstKeyIndicator.PIC}</td>   
+        <td>{$T.lstKeyIndicator.Deadline}</td>
+    </tr>
+{#/for}

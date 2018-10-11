@@ -1,0 +1,31 @@
+﻿{#foreach $T as lstDepartment}
+<tr class="{COMMON.getRowStyle($T.lstDepartment$index + 1)}">
+    <td style="text-align: center">
+        {$T.lstDepartment$index + 1}
+    </td>
+    <td id="department{$T.lstDepartment.DepartmentId}">
+        {$T.lstDepartment.Division_name}
+    </td>
+    <td >
+        {$T.lstDepartment.division_code}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstDepartment.Status == 0} Lock {#elseif $T.lstDepartment.Status == 1} Active
+        {#/if}
+    </td>
+    
+    <td>
+        <a class="aContextFunction" href="javascript:void(0)">Function</a>
+        <div class="divContextFunction">
+            <ul>
+                <li><a href="javascript:void(0)" onclick="pages_Division.functionOnItem(3,{$T.lstDepartment.Division_id})">
+                    Member</a></li>
+                <li><a href="javascript:void(0)" onclick="pages_Division.functionOnItem(1,{$T.lstDepartment.Division_id})">
+                    Edit</a></li>
+                <!--<li><a href="javascript:void(0)" onclick="pages_Department.functionOnItem(2,{$T.lstDepartment.DepartmentId})">
+                    Delete</a></li>-->
+            </ul>
+        </div>
+    </td>
+</tr>
+{#/for}

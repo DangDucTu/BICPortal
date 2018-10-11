@@ -1,0 +1,25 @@
+﻿{#foreach $T as lstProductivityRetail}
+<tr class="weekly-ceo-retail-{$T.lstProductivityRetail$index}">
+    <td style="text-align: left" class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivityRetail.product)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivityRetail.product)}
+    </td>
+    <td class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivityRetail.branch_psedep)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivityRetail.branch_psedep)}
+    </td>
+    <td class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivityRetail.branch_pseloan)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivityRetail.branch_pseloan)}
+    </td>
+    <td class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivityRetail.branch_pb)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivityRetail.branch_pb)}
+    </td>
+    <td class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivityRetail.ac_cl)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivityRetail.ac_cl)}
+    </td>
+    <td class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivityRetail.ac_wb)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivityRetail.ac_wb)}
+    </td>
+    <td class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivityRetail.ac_ap)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivityRetail.ac_ap)}
+    </td>
+</tr>
+{#/for}

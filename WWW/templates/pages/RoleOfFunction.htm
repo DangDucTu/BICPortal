@@ -1,0 +1,12 @@
+﻿{#foreach $T as role}
+<tr class="{COMMON.getRowStyle($T.role$index + 1)}">
+    <td class="title last">
+        <input type="checkbox" class="cbRecord cbincol" id="ACC{$T.role.RoleId}"/>
+    </td>
+    <td><a href="/Pages/RoleInfo.aspx?Id={$T.role.RoleId}" title="Xem thông tin nhóm chức năng">
+                {$T.role.Name}</a></td>
+    <td>
+        <a href="javascript:" id="AC{$T.role.RoleId}" class="delRole" title="Xóa chức năng ra khỏi nhóm">Xóa</a>
+    </td>
+</tr>
+{#/for}

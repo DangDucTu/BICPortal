@@ -1,0 +1,39 @@
+﻿.application, app-resubmit {overflow: auto;}
+table.channel {margin: 0 0 0 5px;}
+table.tb1 {width: 329px;}
+table.channel td,
+table.channel th {border: 1px solid #999; text-align: left; padding-left: 5px; }
+
+table.tb1 td,
+table.tb1 th {border: 1px solid #999; text-align: center; padding: 0 2px; width: 25%;}
+table.tb1 th {background: #D8E4BC;}
+
+table.by-channel tr.app0,
+table.by-channel tr.app1,
+table.by-channel tr.app4,
+table.by-channel tr.app7,
+table.by-channel tr.app10,
+table.by-channel tr.app21 {background: #F2DCDB; font-weight: bold;}
+
+table.by-product tr.app0 {background: #F2DCDB; font-weight: bold;}
+table.by-product tr.app0 td,
+table.by-channel tr.app0 td { border-bottom: 1px solid #333;}
+
+.application-chart {padding: 5px;}
+.application-chart .app-chart {width: 580px; margin-bottom: 10px;}
+        
+.box-child {margin-top: 30px; border: 1px solid #00B050; position: relative;}
+.box-child p.title {color: #fff; padding: 3px 10px; position: absolute; left: -1px; top: -27px; font-size: 13px; width: 200px; border: 1px solid #00B050; border-radius: 5px 5px 0 0; background: #00B050; cursor: pointer;}
+        
+.comment { float: right; margin: 20px 5px; padding: 4px; border: 2px solid #339933; border-radius: 20px 0 20px 0; color: #333; width: 255px; height: 180px;}
+.comment p {font-size: 10px; padding: 0;}
+.comment h5 {color: #006600; text-decoration: underline;}
+        
+.notes {padding: 10px; background: #ddd; margin-top: 5px;}
+.notes table {width: 100%;}
+.notes table td {text-align: left; width: 50%;}
+
+.stage .dxchartsuiTooltip,
+.application .dxchartsuiTooltip { display: none;}
+.stage .dxchartsuiCrosshairVLine,
+.application .dxchartsuiCrosshairVLine {display: none;}

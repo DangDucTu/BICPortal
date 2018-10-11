@@ -1,0 +1,11 @@
+D:\tudd1\VpBank\source code\codeplex\codebackup\BICCPortal\QuanLyNganSach\Config\bin\Debug\Config.dll
+D:\tudd1\VpBank\source code\codeplex\codebackup\BICCPortal\QuanLyNganSach\Config\bin\Debug\Config.pdb
+D:\tudd1\VpBank\source code\codeplex\codebackup\BICCPortal\QuanLyNganSach\Config\obj\Debug\Config.csprojResolveAssemblyReference.cache
+D:\tudd1\VpBank\source code\codeplex\codebackup\BICCPortal\QuanLyNganSach\Config\obj\Debug\Config.dll
+D:\tudd1\VpBank\source code\codeplex\codebackup\BICCPortal\QuanLyNganSach\Config\obj\Debug\Config.pdb
+D:\tudd1\VpBank\source code\VSTS\Config\bin\Debug\Config.dll
+D:\tudd1\VpBank\source code\VSTS\Config\bin\Debug\Config.pdb
+D:\tudd1\VpBank\source code\VSTS\Config\obj\Debug\Config.csprojAssemblyReference.cache
+D:\tudd1\VpBank\source code\VSTS\Config\obj\Debug\Config.csproj.CoreCompileInputs.cache
+D:\tudd1\VpBank\source code\VSTS\Config\obj\Debug\Config.dll
+D:\tudd1\VpBank\source code\VSTS\Config\obj\Debug\Config.pdb

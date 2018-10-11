@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VPBReport" Class="ETLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.36.76.12;Initial Catalog=VPBReport;User ID=sa" SettingsObjectName="DataContext.Properties.Settings" SettingsPropertyName="VPBReportConnectionString2" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspETLDictionaryDelete" Method="uspETLDictionaryDelete">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspETLDictionaryGetInfo" Method="uspETLDictionaryGetInfo">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspETLDictionaryGetInfoResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PACKAGE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CONTROL_FLOW" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SOURCE_DB" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SOURCE_TABLE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEST_DB" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEST_TABLE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NOTES" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspETLDictionaryGetList" Method="uspETLDictionaryGetList">
+    <Parameter Name="db" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="table" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspETLDictionaryGetListResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PACKAGE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CONTROL_FLOW" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SOURCE_DB" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SOURCE_TABLE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEST_DB" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEST_TABLE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NOTES" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspETLDictionaryInsert" Method="uspETLDictionaryInsert">
+    <Parameter Name="package" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="controlFlow" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="sourceDb" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="sourceTable" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="destDb" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="destTable" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspETLDictionaryUpdate" Method="uspETLDictionaryUpdate">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="package" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="controlFlow" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="sourceDb" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="sourceTable" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="destDb" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="destTable" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

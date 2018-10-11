@@ -1,0 +1,35 @@
+﻿table.channel
+{
+    width: 370px;
+    float: left;
+    margin-left: 5px;
+    background: #ddd;
+}
+table.channel td, table.channel th
+{
+    border: 1px solid #999;
+    padding-left: 5px;
+    text-align: left;
+    font-size: 10px;
+    vertical-align: top;
+}
+table.values {width: 799px; float: left; margin-left: -1px;}
+table.values th {background: #215967; color: #eee; color: #eee; width: 66px;}
+table.values td {text-align: right; padding-right: 3px;}
+table.values td, table.values th {border: 1px solid #999;}
+table.vl th {border-top: none;}
+        
+table tr.even:hover td, table tr.odd:hover td {
+    background-color: #ffe8aa;
+}
+table tr.even td {
+    background-color: #fff8e6;
+}
+        
+.filter {margin-top: 5px;}
+        
+.red {background: #FF0000; color: #fff;}
+.green {background: #92D050;}
+.yellow {background: #FFFF00;}
+.hide {visibility: hidden;}      
+.source p {padding: 0 0 0 10px; font-size: 11px; font-weight: normal; font-style: italic;}  

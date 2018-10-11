@@ -1,0 +1,80 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupExportExcel" class="_divPopup_border _divPopup_wrapperMain" style="width: 400px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Export Excel
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Close">
+                &nbsp;</div>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <div class="content_popup" style="min-height: 100px;">
+            <div class="form">                
+                <div class="row">
+                    <ul>
+                        <li class="text">Xuất:</li>
+                        <li>
+                            <select id="ddlTypeExport">
+                                <option value="1">Danh sách nhân sự mới</option>
+                                <option value="2">Danh sách nhân sự chốt tháng</option>
+                                <option value="3">Toàn bộ danh sách nhân sự còn làm việc</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row" id="divDate">
+                    <ul>
+                        <li class="text">Chọn ngày:</li>
+                        <li>
+                            <input id="txtDateExport" type="text" readonly="readonly" />
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row" id="divMonth" style="display: none">
+                    <ul>
+                        <li class="text">Chọn tháng:</li>
+                        <li>
+                            <select id="ddlMonthExport">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">   
+                <li>
+                    <input type="button" value="Export" id="popup_export_excel" /></li>
+                <li>
+                    <input type="button" value="Close" id="popup_cancel" /></li>
+            </ul>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <div style="clear: both;">
+        </div>
+    </div>
+</div>

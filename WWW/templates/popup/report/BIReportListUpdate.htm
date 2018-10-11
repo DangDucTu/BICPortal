@@ -1,0 +1,190 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupUpdateReportList" class="_divPopup_border _divPopup_wrapperMain"
+    style="width: 760px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Add New BI Report
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Close">
+                &nbsp;</div>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <!--<div class="content_popup" style="width: 400px; float: left; border-right: 1px solid #ddd">-->
+            <div class="form">
+                <div class="row">
+                    <ul>
+                        <li class="text">Report Name:</li>
+                        <li>
+                            <input type="text" tabindex="1" id="txtReportName" style="width: 250px;" maxlength="200"
+                                fempty="*" />
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text">Report Type:</li>
+                        <li>
+                            <select style="width: 100px;" class="select" id="ddlIsAuto">
+                                <option value="0">NORMAL</option>
+                                <option value="1">AUTO</option>
+                            </select>
+                        </li>                        
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text">Client:</li>
+                        <li>
+                            <select style="width: 100px;" class="select" id="ddlClient">
+                                <option value="CLIENT">CLIENT</option>
+                                <option value="BICC">BICC</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text">Email Client:</li>
+                        <li>
+                            <input type="text" id="txtEmailClient" style="width: 180px;" maxlength="50"
+                                fempty="*" femail="*" />
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text">Frequency:</li>
+                        <li>
+                            <select style="width: 100px;" class="select" id="ddlFrequency">
+                                <option value="1">DAILY</option>
+                                <option value="2">WEEKLY</option>
+                                <option value="3">MONTHLY</option>
+                                <option value="4">ONE-OFF</option>
+                                <option value="5">REALTIME</option>
+                            </select>
+                        </li>                        
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row" id="divDeadline" style="display: none">
+                    <ul>
+                        <li class="text">Deadline:</li>
+                        <li>
+                            <input type="text" tabindex="2" id="txtDeadline" readonly="readonly"
+                                style="width: 250px;" maxlength="50" />
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row" id="divURLReport">
+                    <ul>
+                        <li class="text">Link BI Report:</li>
+                        <li>
+                            <input type="text" tabindex="2" id="txtUrlReport"
+                                   style="width: 250px;" maxlength="250" />
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row" id="divPIC">
+                    <ul>
+                        <li class="text">PIC:</li>
+                        <li>
+                            <select style="width: 186px;" class="select" id="ddlAccount">
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text">Backup:</li>
+                        <li>
+                            <select style="width: 186px;" class="select" id="ddlAccountBackup">
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="text">Description:</li>
+                        <li>
+                            <textarea id="txtDescription" rows="3" cols="4" style="width: 182px" fempty="*"></textarea>
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        <!--</div>-->
+        <!--<div class="content_popup" style="float: left; margin-left: 10px; width: 340px;">
+            <div class="container_data" id="divListAccount" style="float: left; padding-top: 15px; width: 100%">
+                <div class="header_container">
+                    <span class="container_text">CLIENT </span>
+                    <div class="adminBox_Control">
+                        <ul>
+                            <li id="liAddClient" class="action icon_add">Add Client</li>
+                        </ul>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="content">
+                    <table border="0" cellpadding="0" cellspacing="0" class="table" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th style="width: 20px">
+                                    STT
+                                </th>
+                                <th>
+                                    Account Name
+                                </th>
+                                <th>
+                                    Full Name
+                                </th>
+                                <th>
+                                    Remove
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbListClient">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>-->
+        <div class="clear">
+        </div>
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li>
+                    <input type="button" value="Update" id="popup_save" /></li>
+                <li>
+                    <input type="button" value="Close" id="popup_cancel" /></li>
+            </ul>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <div style="clear: both;">
+        </div>
+    </div>
+</div>

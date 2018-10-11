@@ -1,0 +1,111 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupUpdateReport" class="_divPopup_border _divPopup_wrapperMain" style="width: 400px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Add New Report
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Close">&nbsp;</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content_popup">
+            <div class="form">
+                <div class="row">
+                    <ul>
+                        <li class="text">Type Report:</li>
+                        <li>
+                            <select id="ddlTypeReportUpdate" style="width: 185px">
+                                
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li class="text">Name:</li>
+                        <li>
+                            <input type="text" tabindex="1" id="txtNameUpdate" style="width: 179px;" maxlength="100" fempty="*"/>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li class="text">File Type:</li>
+                        <li>
+                            <select id="ddlFileType" style="width: 141px">
+                                <option value="EXCEL">EXCEL</option>
+                                <option value="PDF">PDF</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li class="text">Date Expire:</li>
+                        <li>
+                            <select id="ddlHour"></select> h
+                            <input type="text" id="txtDateExpire" style="width: 77px" fempty="*" />
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li class="text">Account Name:</li>
+                        <li>
+                            <select id="ddlAccountName" style="width: 141px">
+                                
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li class="text">Description:</li>
+                        <li>
+                            <textarea id="txtDescription" cols="4" rows="4" style="width: 180px"></textarea>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                                
+                <div class="row">
+                    <ul>
+                        <li class="text">Status:</li>
+                        <li><input type="radio" tabindex="2" value="Hoạt động" id="rdActive" checked="checked"
+                                   title="Active" name="Status" />
+                            <label for="rdActive" style="cursor:pointer;" >Active </label>
+                        </li>
+                        <li>
+                            <input type="radio" tabindex="3" value="Lock" id="rdDeactive" title="Khóa" name="Status"
+                                   style="float: none;" />
+                            <label for="rdDeactive" style="cursor:pointer;" >Lock </label>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li><input type="button" value="Update" id="popup_save"/></li>
+                <li><input type="button" value="Close" id="popup_cancel"/></li>
+            </ul>
+            <div style="clear: both;"></div>
+        </div>
+        <div style="clear: both;">
+        </div>
+    </div>
+</div>

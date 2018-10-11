@@ -1,0 +1,13 @@
+﻿{#foreach $T as lstSummary}
+<tr class="number">
+    <td>        
+        {COMMON.formatCurrent($T.lstSummary.loan)}
+        <img src="{$T.lstSummary.icon_loan}" />
+    </td>
+    <td>
+        
+        {COMMON.formatCurrent($T.lstSummary.deposit)}
+        <img src="{$T.lstSummary.icon_deposit}">
+    </td>
+</tr>
+{#/for}

@@ -1,0 +1,4 @@
+D:\tudd1\VpBank\source code\codeplex\codebackup\BICCPortal\QuanLyNganSach\Config\bin\Release\Config.dll
+D:\tudd1\VpBank\source code\codeplex\codebackup\BICCPortal\QuanLyNganSach\Config\bin\Release\Config.pdb
+D:\tudd1\VpBank\source code\codeplex\codebackup\BICCPortal\QuanLyNganSach\Config\obj\Release\Config.dll
+D:\tudd1\VpBank\source code\codeplex\codebackup\BICCPortal\QuanLyNganSach\Config\obj\Release\Config.pdb

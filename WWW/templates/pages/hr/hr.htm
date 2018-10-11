@@ -1,0 +1,66 @@
+﻿{#foreach $T.Items as lstSale}
+<tr class="{COMMON.getRowStyle($T.lstSale$index + 1)}">
+    <td style="text-align: center">
+        {$T.lstSale$index + 1}
+    </td>
+    <td id="sc{$T.lstSale$index + 1}" style="text-align: left">
+        {$T.lstSale.SALE_CODE}
+    </td>    
+    <td>
+        {$T.lstSale.DAO}
+    </td>
+    <td>
+        {$T.lstSale.HR_STAFF}
+    </td>
+    <td id="sn{$T.lstSale$index + 1}" style="text-align: left">
+        {$T.lstSale.SALE_NAME_TV}
+    </td>
+    <td>
+        {$T.lstSale.BRANCH_CODE}
+    </td>
+    <td id="team{$T.lstSale$index + 1}">
+        {$T.lstSale.TEAM}
+    </td>
+    <td>
+        {$T.lstSale.CHANNEL}
+    </td>
+    <td>
+        {$T.lstSale.POSITION}
+    </td>
+    <td>
+        {$T.lstSale.SUB_POSITION}
+    </td>
+    <td>
+        {$T.lstSale.GENDER}
+    </td>
+    <td>
+        {$T.lstSale.PHONE}
+    </td>    
+    <td>
+        {COMMON.jSonDateToString($T.lstSale.DOB_SALES,8)}
+    </td>
+    <!--<td style="text-align: left">
+        <a href="mailto:{$T.lstSale.EMAIL}">{$T.lstSale.EMAIL}</a>
+    </td>-->
+    <td style="text-align: left;">
+        {$T.lstSale.NATIONAL_ID}
+    </td>
+    <td>
+        {COMMON.jSonDateToString($T.lstSale.DATE_SALES_START,8)}
+    </td>
+    <td>
+        {$T.lstSale.PAYROLL_ACCT}
+    </td>        
+    <td>
+        <a class="aContextFunction" href="javascript:void(0)">Function</a>
+        <div class="divContextFunction">
+            <ul>
+                <li><a href="javascript:void(0)" onclick="page_Hr.functionOnItem(1,'{$T.lstSale.SALE_CODE}','{$T.lstSale$index + 1}')">
+                    Edit</a></li>
+                <li><a href="javascript:void(0)" onclick="page_Hr.functionOnItem(2,'{$T.lstSale.SALE_CODE}','{$T.lstSale$index + 1}')">
+                    Sale Off</a></li>
+            </ul>
+        </div>
+    </td>
+</tr>
+{#/for}

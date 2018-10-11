@@ -1,0 +1,9 @@
+﻿{#foreach $T as lstTopSaleman}
+    <tr>
+        <td style="text-align: left; padding-left: 5px;">{$T.lstTopSaleman.Salesman}</td>
+        <td>{$T.lstTopSaleman.Branch}</td>
+        <td>{$T.lstTopSaleman.Zone}</td>
+        <td>{$T.lstTopSaleman.Title}</td>
+        <td>{$T.lstTopSaleman.PointIncentive.format(0, 3, ',', '.')}</td>        
+    </tr>
+{#/for}

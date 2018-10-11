@@ -1,0 +1,411 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DevExpress.XtraCharts.Web;
+using WorkFlowBLL;
+using DevExpress.XtraCharts;
+using System.Drawing;
+using System.Xml;
+using System.Collections;
+
+public partial class pages_charts_DailyRetailTAT : System.Web.UI.Page
+{
+    public string date
+    {
+        get { return ViewState["date"].ToString(); }
+        set { ViewState["date"] = value; }
+    }
+    
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        
+        if (!IsPostBack)
+        {
+            txtDate.Text = Dashboard.Instance.TATGetLastDate().Date.ToString("MM/dd/yyyy");
+            date = txtDate.Text;
+
+            this.GetDailyRetailByProduct();
+            this.GetDailyRetailAgingAvg();
+            this.GetPieChart();
+            this.GetNetGrossApprovedApplications();
+            this.GetRetailCompareChannel();
+            this.GetTATDailyRetailSnapshotChart();
+        }
+    }
+
+    public void GetDailyRetailByProduct()
+    {     
+        var obj1 = Dashboard.Instance.TATDailyRetailByProduct(date);
+        if (obj1.Count == 0) return;
+
+        Series series1 = new Series("Data Entry", ViewType.StackedBar);
+        series1.DataSource = obj1.Where(c => c.Step == "Data Entry");
+        series1.ArgumentDataMember = "ProductName";
+        series1.ValueDataMembers[0] = "TimeLength";
+
+        Series series2 = new Series("Underwriting", ViewType.StackedBar);
+        series2.DataSource = obj1.Where(c => c.Step == "Underwriting");
+        series2.ArgumentDataMember = "ProductName";
+        series2.ValueDataMembers[0] = "TimeLength";
+
+        Series series3 = new Series("PDOC", ViewType.StackedBar);
+        series3.DataSource = obj1.Where(c => c.Step == "PDOC");
+        series3.ArgumentDataMember = "ProductName";
+        series3.ValueDataMembers[0] = "TimeLength";
+
+        Series series4 = new Series("DOC_COM", ViewType.StackedBar);
+        series4.DataSource = obj1.Where(c => c.Step == "DOC_COM");
+        series4.ArgumentDataMember = "ProductName";
+        series4.ValueDataMembers[0] = "TimeLength";
+
+        Series series5 = new Series("Disbursal", ViewType.StackedBar);
+        series5.DataSource = obj1.Where(c => c.Step == "Disbursal");
+        series5.ArgumentDataMember = "ProductName";
+        series5.ValueDataMembers[0] = "TimeLength";
+
+        chart6.Series.Clear();
+
+        chart6.Series.AddRange(new Series[] { series1, series2, series3, series4, series5 });
+
+        GetChartTitle(chart6, "TAT (Disbursed Application) <br> Unit: Days",
+            ChartTitleDockStyle.Top, true, "Arial", 10, System.Drawing.FontStyle.Bold, System.Drawing.Color.FromArgb(49,134,172), 10);
+
+        chart6.Legend.Visible = true;
+        chart6.Width = Unit.Pixel(680);
+        chart6.Height = Unit.Pixel(300);
+
+        chart6.BorderOptions.Visible = false;
+
+        Legend legend = chart6.Legend;
+
+        // Display the chart control's legend.
+        legend.Visible = true;
+
+        // Define its margins and alignment relative to the diagram.        
+        legend.AlignmentHorizontal = LegendAlignmentHorizontal.Center;
+        legend.AlignmentVertical = LegendAlignmentVertical.BottomOutside;
+        legend.Direction = LegendDirection.LeftToRight;
+        legend.Border.Visible = false;
+
+        
+    }
+
+    public void GetDailyRetailAgingAvg()
+    {
+        var obj1 = Dashboard.Instance.TATDailyRetailAgingAppsColumnChart(date, "", "");
+
+        Series series1 = new Series("Number Of Applications", ViewType.Bar);
+        series1.DataSource = obj1;
+        series1.ArgumentDataMember = "Step";
+        series1.ValueDataMembers[0] = "Amount";
+        series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+        chart7.Series.AddRange(new Series[] { series1 });
+
+        GetChartTitle(chart7, "Number Of Applications <br> (Unit: Applications)",
+            ChartTitleDockStyle.Top, true, "Arial", 10, System.Drawing.FontStyle.Bold, System.Drawing.Color.FromArgb(49, 134, 172), 10);
+
+        chart7.Legend.Visible = false;
+        chart7.Width = Unit.Pixel(450);
+        chart7.Height = Unit.Pixel(196);
+
+
+        var obj2 = Dashboard.Instance.TATDailyRetailAgingAvg(date, "", "");
+
+        series1 = new Series("Average Day From Created", ViewType.Bar);
+        series1.DataSource = obj2;
+        series1.ArgumentDataMember = "Step";
+        series1.ValueDataMembers[0] = "Amount";
+        series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+        chart9.Series.AddRange(new Series[] { series1 });
+
+        GetChartTitle(chart9, "Average Day From Created <br> (Unit: Days)",
+            ChartTitleDockStyle.Top, true, "Arial", 10, System.Drawing.FontStyle.Bold, System.Drawing.Color.FromArgb(49, 134, 172), 10);
+
+        chart9.Legend.Visible = false;
+        chart9.Width = Unit.Pixel(450);
+        chart9.Height = Unit.Pixel(196);
+
+        chart9.BorderOptions.Visible = false;
+        chart7.BorderOptions.Visible = false;
+    }
+
+    public void GetPieChart()
+    {
+        var obj1 = Dashboard.Instance.TATDailyRetailAppsStatusPieChart(date, ddlRetail.SelectedValue, ddlRegion.SelectedValue);
+
+        Series series1 = new Series("Number Of Applications", ViewType.Pie);
+        series1.DataSource = obj1;
+        series1.ArgumentDataMember = "Status";
+        series1.ValueDataMembers[0] = "Amount";
+        series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+        PiePointOptions PointOptions = (PiePointOptions)series1.Label.PointOptions;
+        PointOptions.PercentOptions.ValueAsPercent = true;
+        PointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
+        PointOptions.ValueNumericOptions.Precision = 0;
+
+        PieSeriesLabel label = (PieSeriesLabel)series1.Label;
+        label.Position = PieSeriesLabelPosition.Radial;
+        label.BackColor = Color.Transparent;
+        label.Font = new Font("Tahoma", 8, FontStyle.Regular);
+        
+        label.TextColor = Color.Black;
+
+        series1.PointOptions.PointView = PointView.Values; //this is code that you want
+        //if you only legend box change
+        series1.LegendPointOptions.PointView = PointView.Argument;
+
+        chart4.Series.AddRange(new Series[] { series1 });
+
+        GetChartTitle(chart4, "Applications Status",
+            ChartTitleDockStyle.Top, true, "Arial", 10, System.Drawing.FontStyle.Bold, System.Drawing.Color.FromArgb(49, 134, 172), 10);
+
+        chart4.Legend.Visible = true;
+        chart4.Width = Unit.Pixel(225);
+        chart4.Height = Unit.Pixel(167);
+
+    }
+
+    public void GetNetGrossApprovedApplications()
+    {
+        var obj1 = Dashboard.Instance.TATDailyRetailNetGrossApprovedAppsTable(date, ddlRetail.SelectedValue, ddlRegion.SelectedValue);
+        
+        foreach (var item in obj1)
+            item.Total_In_Month = Math.Round((Single)item.Total_In_Month*100, 2);
+        Series series1 = new Series("Net Versus", ViewType.Bar);
+        series1.DataSource = obj1;
+        series1.ArgumentDataMember = "Item";
+        series1.ValueDataMembers[0] = "Total_In_Month";
+        series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+        chart5.Series.Add(series1);
+
+        GetChartTitle(chart5, "Net Versus. Gross % Approval <br> (Unit: %)",
+            ChartTitleDockStyle.Top, true, "Arial", 10, System.Drawing.FontStyle.Bold, System.Drawing.Color.FromArgb(49, 134, 172), 10);        
+
+        chart5.Legend.Visible = false;
+        chart5.Width = Unit.Pixel(225);
+        chart5.Height = Unit.Pixel(200);
+
+    }
+
+    public void GetRetailCompareChannel()
+    {
+        var obj1 = Dashboard.Instance.TATRetailCompareChannel(date, ddlProduct.SelectedValue);
+        if (obj1.Count == 0) return;
+
+        Series series1 = new Series("Alternative Channel", ViewType.Line);
+        series1.DataSource = obj1.Where(c => c.CHANNEL == "Alternative Channel");
+        series1.ArgumentDataMember = "STEP";
+        series1.ValueDataMembers[0] = "TIMELENGTH";
+        
+
+        Series series2 = new Series("Branch", ViewType.Line);
+        series2.DataSource = obj1.Where(c => c.CHANNEL == "Branch");
+        series2.ArgumentDataMember = "STEP";
+        series2.ValueDataMembers[0] = "TIMELENGTH";
+
+        chart8.Series.Clear();
+
+        chart8.Series.AddRange(new Series[] { series1, series2 });
+
+        GetChartTitle(chart8, "Branch TAT VS. Alternative Channel",
+            ChartTitleDockStyle.Top, true, "Arial", 10, System.Drawing.FontStyle.Bold, System.Drawing.Color.FromArgb(49, 134, 172), 10);
+
+        chart8.Width = Unit.Pixel(335);
+        chart8.Height = Unit.Pixel(175);
+
+        foreach (Series series in chart8.Series)
+        {
+            LineSeriesView view = (LineSeriesView)series.View;
+            view.PointMarkerOptions.Kind = MarkerKind.Diamond;
+            view.PointMarkerOptions.Size = 8;
+        }
+
+        Legend legend = chart8.Legend;
+
+        // Display the chart control's legend.
+        legend.Visible = true;
+
+        // Define its margins and alignment relative to the diagram.        
+        legend.AlignmentHorizontal = LegendAlignmentHorizontal.Center;
+        legend.AlignmentVertical = LegendAlignmentVertical.BottomOutside;
+        legend.Direction = LegendDirection.LeftToRight;
+        legend.Border.Visible = false;
+    }
+
+    protected void GetTATDailyRetailSnapshotChart()
+    {
+        var obj1 = Dashboard.Instance.TATDailyRetailSnapshotChart();
+        var _obj1 = obj1.Where(c => c.chart == 1);
+        foreach (var item in _obj1)
+        {
+            item.Amount = item.Amount * 100;
+        }
+
+        Series series1 = new Series("Approved Applications", ViewType.Line);
+        series1.DataSource = _obj1;
+        series1.ArgumentDataMember = "Month";
+        series1.ValueDataMembers[0] = "Amount";
+        series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+        chart1.Legend.Visible = false;
+        chart1.BorderOptions.Visible = false;        
+
+        chart1.Series.AddRange(new Series[] { series1 });
+
+        GetChartTitle(chart1, "Approved Applications <br> (by Percentage)",
+            ChartTitleDockStyle.Top, true, "Arial", 10, System.Drawing.FontStyle.Bold, System.Drawing.Color.FromArgb(49, 134, 172), 10);
+
+        chart1.Width = Unit.Pixel(220);
+        chart1.Height = Unit.Pixel(180);
+
+
+        Series series2 = new Series("TAT", ViewType.Line);
+        series2.DataSource = obj1.Where(c => c.chart == 2);
+        series2.ArgumentDataMember = "Month";
+        series2.ValueDataMembers[0] = "Amount";
+        series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+        chart2.Legend.Visible = false;
+        chart2.BorderOptions.Visible = false;
+
+        chart2.Series.AddRange(new Series[] { series2 });
+
+        GetChartTitle(chart2, "TAT <br> (in Days)",
+            ChartTitleDockStyle.Top, true, "Arial", 10, System.Drawing.FontStyle.Bold, System.Drawing.Color.FromArgb(49, 134, 172), 10);
+
+        chart2.Width = Unit.Pixel(220);
+        chart2.Height = Unit.Pixel(180);
+
+
+        Series series3 = new Series("TAT", ViewType.Line);
+        series3.DataSource = obj1.Where(c => c.chart == 3);
+        series3.ArgumentDataMember = "Month";
+        series3.ValueDataMembers[0] = "Amount";
+        series3.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+        chart3.Legend.Visible = false;
+        chart3.BorderOptions.Visible = false;
+
+        chart3.Series.AddRange(new Series[] { series3 });
+
+        GetChartTitle(chart3, "Aging <br> (in Days)",
+            ChartTitleDockStyle.Top, true, "Arial", 10, System.Drawing.FontStyle.Bold, System.Drawing.Color.FromArgb(49, 134, 172), 10);
+
+        chart3.Width = Unit.Pixel(220);
+        chart3.Height = Unit.Pixel(180);
+        foreach (Series series in chart1.Series)
+        {
+            LineSeriesView view = (LineSeriesView)series.View;
+            view.PointMarkerOptions.Kind = MarkerKind.Diamond;
+            view.PointMarkerOptions.Size = 8;
+        }
+        foreach (Series series in chart2.Series)
+        {
+            LineSeriesView view = (LineSeriesView)series.View;
+            view.PointMarkerOptions.Kind = MarkerKind.Diamond;
+            view.PointMarkerOptions.Size = 8;
+        }
+        foreach (Series series in chart3.Series)
+        {
+            LineSeriesView view = (LineSeriesView)series.View;
+            view.PointMarkerOptions.Kind = MarkerKind.Diamond;
+            view.PointMarkerOptions.Size = 8;
+        }
+
+
+    }
+    
+    public void GetChartTitle(WebChartControl chartId, string title, ChartTitleDockStyle titleDock, bool antialiasing,
+        string fontName, int fontSize, System.Drawing.FontStyle fontStyle, System.Drawing.Color color, int indent)
+    {
+        ChartTitle chartTitle1 = new ChartTitle();
+        chartTitle1.Text = title;
+
+        chartTitle1.Dock = titleDock;
+
+        // Customize a title's appearance.
+        chartTitle1.Antialiasing = antialiasing;
+        chartTitle1.Font = new System.Drawing.Font(fontName, fontSize, fontStyle);
+        chartTitle1.TextColor = color;
+        chartTitle1.Indent = indent;
+
+        chartId.Titles.Clear();
+        chartId.Titles.Add(chartTitle1);
+    }
+
+    protected void txtDate_TextChanged(object sender, EventArgs e)
+    {
+        date = txtDate.Text;
+
+        this.GetDailyRetailByProduct();
+        this.GetDailyRetailAgingAvg();
+        this.GetPieChart();
+        this.GetNetGrossApprovedApplications();
+        this.GetRetailCompareChannel();
+        this.GetTATDailyRetailSnapshotChart();
+    }
+
+    protected void ddlProduct_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        this.GetDailyRetailByProduct();
+        this.GetDailyRetailAgingAvg();
+        this.GetPieChart();
+        this.GetNetGrossApprovedApplications();
+        this.GetRetailCompareChannel();
+        this.GetTATDailyRetailSnapshotChart();
+    }
+
+    protected void ddlRetail_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string value = ddlRetail.SelectedValue;
+
+        ddlRegion.Items.Clear();
+        if (string.IsNullOrEmpty(value))
+            ddlRegion.Items.Add(new ListItem("[-- All --]", ""));
+        else
+        {
+            if (value.Equals("Branch"))
+            {
+                ddlRegion.Items.Add(new ListItem("[-- All Region--]", ""));
+                for (int i = 1; i < 11; i++)
+                {
+                    if (i < 10)
+                        ddlRegion.Items.Add(new ListItem("Region 0" + i, "Region 0" + i));
+                    else
+                        ddlRegion.Items.Add(new ListItem("Region " + i, "Region " + i));
+                }
+                ddlRegion.Items.Add(new ListItem("Undefined", "Undefined"));
+            }
+            else if (value.Equals("Alternative Channel"))
+            {
+                ddlRegion.Items.Add(new ListItem("[-- All ACs --]", ""));
+                ddlRegion.Items.Add(new ListItem("Asset Partnership", "Asset Partnership"));
+                ddlRegion.Items.Add(new ListItem("Consumer Lending", "Consumer Lending"));
+                ddlRegion.Items.Add(new ListItem("Worksite Banking", "Worksite Banking"));
+                ddlRegion.Items.Add(new ListItem("Un-allocated", "Un-allocated"));                
+            }
+        }
+
+        this.GetDailyRetailByProduct();
+        this.GetDailyRetailAgingAvg();
+        this.GetPieChart();
+        this.GetNetGrossApprovedApplications();
+        this.GetRetailCompareChannel();
+        this.GetTATDailyRetailSnapshotChart();
+
+    }
+
+    protected void ddlRegion_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        this.GetDailyRetailByProduct();
+        this.GetDailyRetailAgingAvg();
+        this.GetPieChart();
+        this.GetNetGrossApprovedApplications();
+        this.GetRetailCompareChannel();
+        this.GetTATDailyRetailSnapshotChart();
+    }
+}

@@ -1,0 +1,439 @@
+﻿
+body {
+    background: url("/images/admin/background.png") repeat scroll 0 0 #D1D1D1;
+    font-family: Lucida Grande,Verdana,Lucida Sans Regular,Lucida Sans Unicode,Arial,sans-serif;
+    font-size: 11px;
+    margin: 0;
+    padding: 0;
+}
+
+h5 {
+    font-size: 14px;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #292929;
+    font-weight: bold;
+}
+
+/* -----------------------------------------------------------
+	login
+----------------------------------------------------------- */
+
+#login
+{
+    margin: 5% auto 0 auto;
+    padding: 0;
+    width: 450px;
+}
+
+.bg_name
+{
+     background: url("/images/admin/tb_username.png") no-repeat scroll left center transparent;
+}
+/* -----------------------------------------------------------
+	login -> colors
+----------------------------------------------------------- */
+
+#login div.color
+{
+    left: auto;
+    right: auto;
+    margin: 10px auto 0 auto;
+    padding: 3px 3px 3px 0;
+    clear: both;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+#login div.color a
+{
+    margin: 0 0 0 3px;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: block;
+    float: left;
+}
+
+/* -----------------------------------------------------------
+	login -> title
+----------------------------------------------------------- */
+
+#login div.title
+{
+    margin: 0 auto;
+    padding: 0;
+    width: 420px;
+    clear: both;
+    overflow: hidden;
+    position: relative;
+    background: #003367 url("/images/admin/header_inner.png") repeat-x;
+}
+
+#login div.title h5
+{
+    margin: 10px;
+    padding: 0;
+    color: #ffffff;
+}
+
+/* -----------------------------------------------------------
+	login -> title / corners
+----------------------------------------------------------- */
+
+#login div.title div.corner
+{
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    background: url("/images/admin/login_corners.png") no-repeat;
+}
+
+#login div.title div.tl
+{
+    top: 0;
+    left: 0;
+    background-position: 0 0;
+}
+
+#login div.title div.tr
+{
+    top: 0;
+    right: 0;
+    background-position: -6px 0;
+}
+
+/* -----------------------------------------------------------
+	login -> messages
+----------------------------------------------------------- */
+
+#login div.messages
+{
+    margin: 0 0 0 15px;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+    background: #ffffff;
+    width:420px;
+}
+
+#login div.message
+{
+    margin: 20px 20px 0 20px;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+#login div.messages div.message div.image
+{
+    margin: 2px 0 2px 5px;
+    padding: 6px;
+    float: left;
+}
+
+#login div.messages div.message div.image img
+{
+    margin: 0;
+    vertical-align: middle;
+}
+
+#login div.messages div.message div.text
+{
+    margin: 0;
+    padding: 10px 6px 10px 6px;
+    float: left;
+}
+
+#login div.messages div.message div.dismiss
+{
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+#login div.messages div.message div.dismiss a
+{
+    margin: 15px 14px 0 0;
+    padding: 0;
+    height: 16px;
+    width: 16px;
+    display: block;
+    background: url("/images/admin/cross.png") no-repeat;
+}
+
+#login div.messages div.message div.text h1, #login div.messages div.message div.text h2, #login div.messages div.message div.text h3, #login div.messages div.message div.text h4, #login div.messages div.message div.text h5, #login div.messages div.message div.text h6
+{
+    margin: 0;
+    padding: 0px;
+    border: none;
+}
+
+#login div.messages div.message div.text span
+{
+    margin: 0;
+    padding: 5px 0 0 0;
+    height: 1%;
+    display: block;
+}
+
+#login div.messages div.message-error
+{
+    height: 1%;
+    clear: both;
+    overflow: hidden;
+    background: #FBE3E4;
+    border: 1px solid #FBC2C4;
+    color: #860006;
+}
+
+#login div.messages div.message-error h6
+{
+    color: #860006;
+}
+
+#login div.messages div.message-warning
+{
+    height: 1%;
+    clear: both;
+    overflow: hidden;
+    background: #FFF6BF;
+    border: 1px solid #FFD324;
+    color: #5f5200;
+}
+
+#login div.messages div.message-warning h6
+{
+    color: #5f5200;
+}
+
+#login div.messages div.message-notice
+{
+    height: 1%;
+    clear: both;
+    overflow: hidden;
+    background: #8FBDE0;
+    border: 1px solid #6BACDE;
+    color: #003863;
+}
+
+#login div.messages div.message-notice h6
+{
+    color: #003863;
+}
+
+#login div.messages div.message-success
+{
+    height: 1%;
+    clear: both;
+    overflow: hidden;
+    background: #E6EFC2;
+    border: 1px solid #C6D880;
+    color: #4e6100;
+}
+
+#login div.messages div.message-success h6
+{
+    color: #4e6100;
+}
+
+/* -----------------------------------------------------------
+	login -> inner
+----------------------------------------------------------- */
+
+#login div.inner
+{
+    margin: 0 auto;
+    padding: 20px;
+    width: 380px;
+    background: #FFFFFF url("/images/admin/login.png") no-repeat top left;
+    border-top: none;
+    border-bottom: none;
+}
+
+/* -----------------------------------------------------------
+	login -> form
+----------------------------------------------------------- */
+
+#login div.form
+{
+    margin: 0;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+#login div.form div.fields
+{
+    margin: 0;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+#login div.form div.fields div.field
+{
+    margin: 0;
+    padding: 0 0 20px 0;
+    clear: both;
+    overflow: hidden;
+    border: none;
+}
+
+#login div.form div.fields div.field span.error
+{
+    margin: 8px 0 0 0;
+    padding: 0;
+    height: 1%;
+    display: block;
+    color: #FF0000;
+}
+
+#login div.form div.fields div.field label.error
+{
+    margin: 8px 0 0 0;
+    padding: 0;
+    height: 1%;
+    display: block;
+    color: #FF0000;
+}
+
+#login div.form div.fields div.field div.label
+{
+    left: 0;
+    margin: 2px 10px 0 0;
+    padding: 5px 0 0 5px;
+    width: 173px;
+    float: left;
+    position: relative;
+    text-align: right;
+}
+
+#login div.form div.fields div.field div.label label
+{
+    color: #000000;
+    font-weight: bold;
+}
+
+#login div.form div.fields div.field div.label span
+{
+    margin: 0;
+    padding: 2px 0 0 0;
+    height: 1%;
+    display: block;
+    color: #363636;
+}
+
+#login div.form div.fields div.field div.input
+{
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+#login div.form div.fields div.field div.input input
+{
+    margin: 0;
+    padding: 7px 7px 6px 7px;
+    width: 176px;
+    background: #FFFFFF;
+    border-top: 1px solid #b3b3b3;
+    border-left: 1px solid #b3b3b3;
+    border-right: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    color: #000000;
+    font-family: Lucida Grande, Verdana, Lucida Sans Regular, Lucida Sans Unicode, Arial, sans-serif;
+    font-size: 11px;
+}
+
+#login div.form div.fields div.field div.input input.error
+{
+    background: #FBE3E4;
+    border-top: 1px solid #e1b2b3;
+    border-left: 1px solid #e1b2b3;
+    border-right: 1px solid #FBC2C4;
+    border-bottom: 1px solid #FBC2C4;
+}
+
+#login div.form div.fields div.field div.input input.success
+{
+    background: #E6EFC2;
+    border-top: 1px solid #cebb98;
+    border-left: 1px solid #cebb98;
+    border-right: 1px solid #c6d880;
+    border-bottom: 1px solid #c6d880;
+}
+
+#login div.form div.fields div.field div.input div.link
+{
+    margin: 6px 0 0 0;
+    padding: 0;
+    text-align: right;
+}
+
+#login div.form div.fields div.field div.checkbox
+{
+    margin: 0 0 0 184px;
+    padding: 0;
+}
+
+#login div.form div.fields div.field div.checkbox label
+{
+    color: #565656;
+    font-weight: bold;
+}
+
+#login div.form div.fields div.buttons
+{
+    margin: 0;
+    padding: 10px 0 0 0;
+    clear: both;
+    overflow: hidden;
+    border-top: 1px dotted #ddd;
+    text-align: right;
+}
+
+#login div.form div.fields div.buttons input
+{
+    margin: 0;
+    color: #000000;
+    font-size: 1.0em;
+    font-weight: bold;
+    font-family: Verdana, Helvetica, Sans-Serif;
+}
+
+#login div.form div.fields div.buttons input.ui-state-default
+{
+    margin: 0;
+    padding: 6px 12px 6px 12px;
+    background: #e5e3e3 url("/images/admin/button.png") repeat-x;
+    border-top: 1px solid #DDDDDD;
+    border-left: 1px solid #c6c6c6;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #c6c6c6;
+    color: #515151;
+}
+
+#login div.form div.fields div.buttons input.ui-state-hover
+{
+    margin: 0;
+    padding: 6px 12px 6px 12px;
+    background: #b4b4b4 url("/images/admin/button_selected.png") repeat-x;
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #bebebe;
+    border-right: 1px solid #b1b1b1;
+    border-bottom: 1px solid #afafaf;
+    color: #515151;
+}
+
+/* -----------------------------------------------------------
+	login -> links
+----------------------------------------------------------- */
+
+#login div.form div.links
+{
+    margin: 10px 0 0 0;
+    padding: 0 0 2px 0;
+    clear: both;
+    overflow: hidden;
+}

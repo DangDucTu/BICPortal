@@ -1,0 +1,8 @@
+﻿{#foreach $T as lstSnapshot}
+<tr class="number">
+    <td>        
+        {$T.lstSnapshot.currentdate.format(2, 3, '.', ',')}{$T.lstSnapshot.percent}
+    </td>
+   
+</tr>
+{#/for}

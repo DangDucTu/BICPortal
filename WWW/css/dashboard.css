@@ -1,0 +1,141 @@
+﻿        .middlesite {padding: 0 !important}
+        #tbTitle tr td {font-size: 13px;}
+        .tg .odd {
+                background: none repeat scroll 0 0 #e5e9ec;
+            }
+        
+        .dashboard {width: 1180px; margin: 0 auto 20px; background:#eee;}
+        .dashboard p.title-das 
+        {
+            padding: 10px 0 0;
+            font-size: 25px;
+            line-height: 25px;
+            font-family: Trebuchet MS;
+        }            
+        .dashboard .title span { font-size: 20px; font-weight: normal;}
+        .dashboard .box {margin-top: 10px; border: 1px solid #578EBE
+                         ; }
+        .dashboard .box .title {font-size: 15px; color: #fff; padding: 2px 5px; background: #578EBE; text-transform:uppercase;}
+        .ceo-weekly-dashboard .summary table {width: 30%; float: left; font-size: 16px;}
+        .ceo-weekly-dashboard .summary table tr td {padding: 5px 0;}
+        .ceo-weekly-dashboard .summary table tr td img {margin: 4px 0 0;}
+        .ceo-weekly-dashboard .summary table tr.number td {font-weight: bold; color: #C00000; font-size: 14px;}
+        .ceo-weekly-dashboard .summary table tr.number td span {font-size: 11px;}
+        
+        .ceo-weekly-dashboard .target .loan-deposit {float: left; margin: 10px;}
+        .ceo-weekly-dashboard .target .loan-deposit .ld-title {border: 1px solid #30 33; background: #FFC000; text-align: center; padding: 8px;}
+        .ceo-weekly-dashboard .target .loan-deposit .gauge {float: left; margin: 5px 10px 0;}
+        .ceo-weekly-dashboard .target .loan-deposit .gauge > .chart {position: relative;}
+        .ceo-weekly-dashboard .target .loan-deposit .gauge > .chart > span.value-current {position: absolute; bottom: 12px; left: 103px; padding: 2px; width: 50px; font-weight: bold; color: #FF5000; font-size: 12px;}
+        .ceo-weekly-dashboard .target .loan-deposit .gauge > .chart > span.value-target { padding: 2px; width: 53px; font-weight: bold; color: #000; background: #FFF;}
+        .ceo-weekly-dashboard .productivity .overview {float: left; margin: 10px; border: 1px solid #A6A6A6; width: 40%;}
+        .ceo-weekly-dashboard .productivity .overview .title {border-bottom: 1px solid #A6A6A6; padding: 0 0 0 5px; background: #D9D9D9; font-size: 15px; color: #C80000;}
+        .ceo-weekly-dashboard .productivity .overview table {font-size: 15px; margin-top: 10px;}
+        .ceo-weekly-dashboard .productivity .overview table tr th {padding: 3px; border-bottom: 1px solid #000;}
+        .ceo-weekly-dashboard .productivity .overview table tr td {padding: 3px; color: #808080;}
+        
+        .tg
+        {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 10px 0;
+            width: 100%;
+        }
+        .tg td
+        {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            padding: 2px 5px 2px 5px;
+            border: 1px solid #999;
+            overflow: hidden;
+            word-break: normal;
+            text-align: right;
+        }
+        .tg th
+        {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            font-weight: normal;
+            padding: 5px;
+            border: 1px solid #999;
+            overflow: hidden;
+            word-break: normal;
+        }
+        .tg .tg-drd7
+        {
+            font-weight: bold;
+            background-color: #B7DEE8;
+            text-align: center;
+        }
+                        
+        .ceo-weekly-dashboard .tg tr.weekly-ceo-retail-0,
+        .ceo-weekly-dashboard .tg tr.weekly-ceo-retail-9,
+        .ceo-weekly-dashboard .tg tr.weekly-ceo-retail-12,
+        .ceo-weekly-dashboard .tg tr.weekly-ceo-sme-0,
+        .ceo-weekly-dashboard .tg tr.weekly-ceo-sme-1 {font-weight: bold; background: #ddd;}
+        .ceo-weekly-dashboard .tg tr.weekly-ceo-retail-8,
+        .ceo-weekly-dashboard .tg tr.weekly-ceo-retail-7 {font-weight: bold; font-style: italic;}
+        .ceo-weekly-dashboard .tg .format1 {background: url("/images/admin/icon/down.png") no-repeat 2px 50%}
+        .ceo-weekly-dashboard .tg .format2 {background: url("/images/admin/icon/up.png") no-repeat 2px 50%}
+        .ceo-weekly-dashboard .tg .format0 {background: url("/images/admin/icon/ngang.png") no-repeat 2px 50%}
+                
+        .ceo-weekly-dashboard .sme .tg
+        {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        .ceo-weekly-dashboard .sme .tg td
+        {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            padding: 2px 2px 2px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+        .ceo-weekly-dashboard .sme .tg th
+        {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            font-weight: normal;
+            padding: 17px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+        .ceo-weekly-dashboard .sme .tg .tg-3dpa
+        {
+            font-weight: bold;
+            background-color: #B7DEE8;
+            text-align: center;
+        }
+        .ceo-weekly-dashboard .sme .tg .tg-2sfh
+        {
+            font-weight: bold;
+            background-color: #efefef;
+        }
+        .ceo-weekly-dashboard .sme .tg .tg-yeb6
+        {
+            font-weight: bold;
+            background-color: #efefef;
+            text-align: right;
+        }
+        .ceo-weekly-dashboard .sme .tg .tg-e3zv
+        {
+            font-weight: bold;
+        }
+        .ceo-weekly-dashboard .sme .tg .tg-34fq
+        {
+            font-weight: bold;
+            text-align: right;
+        }
+        .ceo-weekly-dashboard .sme .tg .tg-0ord
+        {
+            text-align: right;
+        }
+        
+        .dashboard ul.tat-tab {position: absolute; right: 0; bottom: 0;}
+        .dashboard ul.tat-tab li {float: left; padding: 2px 15px; margin: 0 0 1px 2px; font-size: 13px; cursor: pointer; border-radius: 5px 5px 0 0; background:#d8e4bc; border: 1px solid #339933;}
+        .dashboard ul.tat-tab li.active { background: #339933; color: #fff;}

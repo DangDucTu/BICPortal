@@ -1,0 +1,16 @@
+﻿{#foreach $T as lstRetailBom}
+    <tr class="{COMMON.getRowStyle($T.lstRetailBom$index + 1)}">
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Jan,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Jan.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Feb,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Feb.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Mar,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Mar.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Apr,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Apr.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.May,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.May.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Jul,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Jun.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Jun,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Jul.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Aug,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Aug.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Sep,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Sep.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Oct,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Oct.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Nov,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Nov.format(2, 3, ',', '.')}</td>
+        <td class="{page_RetailBom.getClassActual($T.lstRetailBom.Dec,$T.lstRetailBom.CHANNEL,$T.lstRetailBom.PARAMETER)}">{$T.lstRetailBom.Dec.format(2, 3, ',', '.')}</td>
+    </tr>
+{#/for}

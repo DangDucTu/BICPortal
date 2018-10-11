@@ -1,0 +1,205 @@
+﻿ul.pagingCss
+{
+    color:#979797;
+    font-family:tahoma;
+    font-size:12px;
+    list-style:none;
+    float:right;
+    padding:10px 5px 0px 5px;
+    line-height:12px;
+}
+ul.pagingCss li
+{
+    color:#979797;
+    display:inline;
+    font-size:11px;
+    font-weight:bold;
+    height:19px;
+    text-decoration:none;
+    padding:0px 5px!important;
+    margin:0px!important;
+    text-align:center;
+    float:left;
+}
+
+ul.pagingCss li.page_first
+{
+    background-image:url(/images/admin/page_first.gif);
+    background-position:center;
+    background-repeat:no-repeat;
+    width:10px;
+    height:10px;
+    color:#3D3D3D;
+    margin-top:1px!important;
+}
+ul.pagingCss li.page_first:hover
+{
+    background-image:url(/images/admin/page_first_hover.gif);
+    background-position:center;
+    background-repeat:no-repeat;
+    margin-top:1px!important;
+    width:10px;
+    height:10px;
+    color:#3D3D3D;
+}
+ul.pagingCss li.page_first span
+{
+    width:10px;
+    height:10px;
+    display:block;
+}
+ul.pagingCss li.page_back
+{
+    background-image:url(/images/admin/page_back.gif);
+    background-position:center;
+    background-repeat:no-repeat;
+    margin-top:1px!important;
+    width:5px;
+    height:10px;
+    color:#3D3D3D;
+}
+ul.pagingCss li.page_back:hover
+{
+    background-image:url(/images/admin/page_back_hover.gif);
+    background-position:center;
+    background-repeat:no-repeat;
+    margin-top:1px!important;
+    width:5px;
+    height:10px;
+    color:#3D3D3D;
+}
+ul.pagingCss li.page_back span
+{
+    display:block;
+}
+ul.pagingCss li.page_next
+{
+    background-image:url(/images/admin/page_next.gif);
+    background-position:center;
+    background-repeat:no-repeat;
+    margin-top:1px!important;
+    color:#3D3D3D;
+    width:5px;
+    height:10px;
+}
+ul.pagingCss li.page_next:hover
+{
+    background-image:url(/images/admin/page_next_hover.gif);
+    background-position:center;
+    background-repeat:no-repeat;
+    margin-top:1px!important;
+    width:5px;
+    height:10px;
+    color:#3D3D3D;
+}
+ul.pagingCss li.page_next span
+{
+    display:block;
+}
+ul.pagingCss li.page_last
+{
+    background-image:url(/images/admin/page_last.gif);
+    background-position:center;
+    background-repeat:no-repeat;
+    margin-top:1px!important;
+    width:10px;
+    height:10px;
+    color:#3D3D3D;
+}
+ul.pagingCss li.page_last:hover
+{
+    background-image:url(/images/admin/page_last_hover.gif);
+    background-position:center;
+    background-repeat:no-repeat;
+    margin-top:1px!important;
+    width:10px;
+    height:10px;
+    color:#3D3D3D;
+}
+ul.pagingCss li.page_last span
+{
+    width:10px;
+    height:10px;
+    display:block;
+}
+
+ul.pagingCss li:hover
+{
+    cursor: pointer;
+    color:#3D3D3D;
+}
+ul.pagingCss li.selected
+{
+    cursor: default;
+    color:#3D3D3D;
+}
+ul.pagingCss li a
+{
+    text-decoration:none;
+    color:#3D3D3D;
+}
+ul.pagingCss li a:hover
+{
+    text-decoration:none;
+    color:#0CB2EE;
+}
+ul.pagingCss li.selected a
+{
+    cursor: default;
+    color:#0CB2EE;
+}
+.page-current
+{
+	text-decoration:underline!important;
+	color:#000!important;
+}
+/* -------------------------------------------------------------- */
+/* */
+/* -------------------------------------------------------------- */
+.pagingCssSmall {
+    background-color:#E1E1E1;
+    padding:4px 0px;
+    height:14px;
+    width:100%;
+}
+.pagingCssSmall .back
+{
+    height:14px;
+    width:8px;
+    float:right;
+    margin-right:5px;
+    background:url(/images/admin/mt_l_xam.jpg) no-repeat;
+    cursor:pointer;
+}
+.pagingCssSmall .back:hover
+{
+    background:url(/images/admin/mt_l_xanh.jpg) no-repeat;
+}
+.pagingCssSmall .next
+{
+    height:14px;
+    width:8px;
+    float:right;
+    margin-right:5px;
+    background:url(/images/admin/mt_r_xam.jpg) no-repeat;
+    cursor:pointer;
+}
+.pagingCssSmall .next:hover
+{
+    background:url(/images/admin/mt_r_xanh.jpg) no-repeat;
+}
+.pagingCssSmall .pageNumber
+{
+    float:left;
+    margin-left:3px;
+    height:14px;
+    font-weight:bold;
+}
+
+.pagingCssSmall .none
+{
+    height:14px;
+    width:5px;
+    float:right;
+    margin-right:8px;
+}

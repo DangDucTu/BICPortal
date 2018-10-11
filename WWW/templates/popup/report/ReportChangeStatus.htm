@@ -1,0 +1,75 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupUpdateReporChangeStatus" class="_divPopup_border _divPopup_wrapperMain" style="width: 296px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Comment
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Close">&nbsp;</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content_popup">
+            <div class="form">
+                <div class="row">
+                    <ul>
+                        <li class="text" style="text-align: left; width:80px;">Reason:</li>
+                        <li>
+                            <select id="ddlReason" style="width: 187px;">
+                                <option value="NO DATA">NO DATA</option>
+                                <option value="PIC OFF, NO BACKUP">PIC OFF, NO BACKUP</option>
+                                <option value="OFF DAY">OFF DAY</option>
+                                <option value="DELAY IN EXECUTION">DELAY IN EXECUTION</option>
+                                <option value="CHANGE OF SCOPE">CHANGE OF SCOPE</option>
+                                <option value="TRAINING, EVENT ETC">TRAINING, EVENT ETC</option>
+                                <option value="OTHER ISSUES">OTHER ISSUES</option>                               
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <!--<li class="text">Description:</li>-->
+                        <li>
+                            <textarea id="txtDescription" cols="4" rows="4" style="width: 260px; padding: 5px;"></textarea>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                                
+                <div class="row" style="display: none">
+                    <ul>
+                        <li class="text">Status:</li>
+                        <li><input type="radio" tabindex="2" value="No Error" id="rdNoError" checked="checked"
+                                   title="No Error" name="Status" />
+                            <label for="rdNoError" style="cursor:pointer;" >No Error </label>
+                        </li>
+                        <li>
+                            <input type="radio" tabindex="3" value="Error" id="rdError" title="Error" name="Status"
+                                   style="float: none;" />
+                            <label for="rdError" style="cursor:pointer;" >Error </label>
+                        </li>
+                        <!--<li>
+                            <input type="radio" tabindex="4" value="Error" id="rdLock" title="Error" name="Status"
+                                   style="float: none;" />
+                            <label for="rdLock" style="cursor:pointer;" >Lock </label>
+                        </li>-->
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li><input type="button" value="Update" id="popup_save_change_status"/></li>
+                <li><input type="button" value="Close" id="popup_cancel"/></li>
+            </ul>
+            <div style="clear: both;"></div>
+        </div>
+        <div style="clear: both;">
+        </div>
+    </div>
+</div>

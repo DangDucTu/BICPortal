@@ -1,0 +1,85 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupUpdateDepartment" class="_divPopup_border _divPopup_wrapperMain" style="width: 400px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Add New Department
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Close">&nbsp;</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content_popup">
+            <div class="form">               
+                <div class="row">
+                    <ul>
+                        <li class="text">Name:</li>
+                        <li>
+                            <input type="text" tabindex="1" id="txtNameUpdate" style="width: 179px;" maxlength="100" fempty="*"/>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li class="text">Manager:</li>
+                        <li>
+                            <input type="text" id="txtAdminName" style="width: 110px" />
+                        </li>
+                        <li><a id="sel-manager">Search</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li class="text">Manager:</li>
+                        <li>
+                            <select id="ddlManagerDepartment" style="width: 186px;">
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li class="text">Description:</li>
+                        <li>
+                            <textarea id="txtDescription" cols="4" rows="4" style="width: 184px"></textarea>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                                
+                <div class="row">
+                    <ul>
+                        <li class="text">Status:</li>
+                        <li><input type="radio" tabindex="2" value="Hoạt động" id="rdActive" checked="checked"
+                                   title="Hoạt động" name="Status" />
+                            <label for="rdActive" style="cursor:pointer;" >Activity </label>
+                        </li>
+                        <li>
+                            <input type="radio" tabindex="3" value="Hoạt động" id="rdDeactive" title="Khóa" name="Status"
+                                   style="float: none;" />
+                            <label for="rdDeactive" style="cursor:pointer;" >Lock </label>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li><input type="button" value="Update" id="popup_save"/></li>
+                <li><input type="button" value="Close" id="popup_cancel"/></li>
+            </ul>
+            <div style="clear: both;"></div>
+        </div>
+        <div style="clear: both;">
+        </div>
+    </div>
+</div>

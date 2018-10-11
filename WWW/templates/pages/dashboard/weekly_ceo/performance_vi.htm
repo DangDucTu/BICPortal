@@ -1,0 +1,36 @@
+﻿
+        {#foreach $T as lstPerformance}
+        <tr>
+            <td style="text-align: left; font-weight: bold">
+                {#if $T.lstPerformance$index == 0}
+                    KH CÁ NHÂN
+                {#else}
+                    KH DOANH NGHIỆP
+                {#/if}
+            </td>
+            <td>
+                {COMMON.formatCurrent($T.lstPerformance.eop_balance)}
+            </td>
+            <td>
+                {#if $T.lstPerformance.month_end_target != null}
+                    {$T.lstPerformance.month_end_target}%
+                {#/if}
+            </td>
+            <td>
+                {#if $T.lstPerformance.year_end_target != null}
+                    {$T.lstPerformance.year_end_target}%
+                {#/if}
+            </td>
+            <td>
+                {#if $T.lstPerformance.growth_target != null}
+                    {$T.lstPerformance.growth_target}%
+                {#/if}
+            </td>
+            <td>
+                {pages_WeeklyCeoDashboard.getPercent($T.lstPerformance.eop_balance,$T.lstPerformance.eop_balance_1)}
+            </td>
+            <td>
+                {pages_WeeklyCeoDashboard.getPercent($T.lstPerformance.eop_balance,$T.lstPerformance.eop_balance_yoy)}
+            </td>
+        </tr>
+        {#/for}

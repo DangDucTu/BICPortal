@@ -1,0 +1,48 @@
+﻿{#foreach $T as lstReportList}
+<tr class="{COMMON.getRowStyle($T.lstReportList$index + 1)}">
+    <td style="text-align: center">
+        {$T.lstReportList$index + 1}
+    </td>
+    <td style="text-align: center">
+        BICC_REP_{$T.lstReportList.Department}_{$T.lstReportList.ReportCode}
+    </td>
+    <td id="ReportName{$T.lstReportList.ReportListId}" style="text-align: left">
+        {#if $T.lstReportList.Description != ''}
+            <a href="javascript:;" class="spanTooltip" title="{$T.lstReportList.Description}">{$T.lstReportList.ReportName}</a>
+        {#else}
+            <a href="javascript:;">{$T.lstReportList.ReportName}</a>
+        {#/if}
+    </td>    
+    <td id="Frequency{$T.lstReportList.ReportListId}" style="text-align: center">
+        {#if $T.lstReportList.Frequency == 'WEEKLY' && $T.lstReportList.Weekday != null}
+            {$T.lstReportList.Frequency} - {$T.lstReportList.Weekday}
+        {#elseif $T.lstReportList.Frequency == 'MONTHLY' && $T.lstReportList.DayInMonth != null}
+            {$T.lstReportList.Frequency} - {$T.lstReportList.DayInMonth}th
+        {#else}
+            {$T.lstReportList.Frequency}
+        {#/if}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.Deadline}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.Client}
+    </td>    
+    <td style="text-align: center">
+        {$T.lstReportList.Account}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.AccountBackup}
+    </td> 
+    <td style="text-align: center">
+    {#if $T.lstReportList.CreateDate==null}
+        &nbsp;
+    {#else}
+        {COMMON.jSonDateToString($T.lstReportList.CreateDate, 8)}
+    {#/if}
+    </td>    
+    <td style="color:Red;font-weight:bold">
+        {$T.lstReportList.TotalDownload}
+    </td>   
+</tr>
+{#/for}

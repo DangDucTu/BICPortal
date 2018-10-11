@@ -1,0 +1,21 @@
+﻿#snapshot table.first th {font-size: 18px !important; color: #0076AC; padding: 10px 0}
+#snapshot table.first td {font-size: 16px !important; text-align: center; padding: 8px 20px; color: #2D99B5; font-weight: bold;}
+.chart-productivity {float: right; padding: 10px;}
+.chart-left {float: left; padding: 10px; }
+.chart-right {float: right; padding: 10px; }
+#snapshot table.second td {border: none !important}
+#snapshot table.first th {font-size: 18px !important; color: #0076AC; padding: 10px 0}
+#snapshot table.first td {font-size: 16px !important; text-align: center; padding: 8px 20px; color: #2D99B5; font-weight: bold;}
+.chart-productivity {float: right; padding: 10px;}
+.chart-left {float: left; padding: 10px; }
+.chart-right {float: right; padding: 10px; }
+#snapshot table.second td {border: none !important}
+
+.tg .odd {background: #E5E9EC;}
+.tg th {font-size: 12px !important;}
+.tg td {font-size: 11px !important;}
+.sales-productivity1 {font-weight: bold;}
+.sales-productivity2 {font-weight: bold; padding-left: 18px !important; background: url("/images/admin/icon/down.png") no-repeat 2px center}
+.sales-productivity3 {font-weight: bold; padding-left: 18px !important; background: url("/images/admin/icon/up.png") no-repeat 2px center}
+.sales-productivity4 {padding-left: 18px !important; background: url("/images/admin/icon/down.png") no-repeat 2px center}
+.sales-productivity5 {padding-left: 18px !important; background: url("/images/admin/icon/up.png") no-repeat 2px center}

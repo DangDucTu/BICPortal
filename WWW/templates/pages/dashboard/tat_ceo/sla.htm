@@ -1,0 +1,66 @@
+﻿{#foreach $T as lstSla}
+<tr class="{COMMON.getRowStyle($T.lstSla$index + 1)}">
+    <td style="text-align: left; font-weight: bold;">
+        {$T.lstSla.Product}
+    </td>
+    <td style="text-align: center">
+        {$T.lstSla.Target1}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstSla.Sla1==-1}
+            N/A
+        {#else}
+            {$T.lstSla.Sla1}%
+        {#/if}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstSla.Sla1 >= 90}
+            <img src="/images/admin/icon/green.png" alt="" />
+        {#elseif $T.lstSla.Sla1 >= 80 && $T.lstSla.Sla1 < 90}
+            <img src="/images/admin/icon/yellow.png" alt="" />
+        {#elseif $T.lstSla.Sla1 < 80 && $T.lstSla.Sla1 != -1}
+            <img src="/images/admin/icon/red.png" alt="" />
+        {#/if}
+    </td>
+
+    <td style="text-align: center">
+        {$T.lstSla.Target2}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstSla.Sla2==-1}
+            N/A
+        {#else}
+            {$T.lstSla.Sla2}%
+        {#/if}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstSla.Sla2 >= 90}
+            <img src="/images/admin/icon/green.png" alt="" />
+        {#elseif $T.lstSla.Sla2 >= 80 && $T.lstSla.Sla2 < 90}
+            <img src="/images/admin/icon/yellow.png" alt="" />
+        {#elseif $T.lstSla.Sla2 < 80 && $T.lstSla.Sla2 != -1}
+            <img src="/images/admin/icon/red.png" alt="" />
+        {#/if}
+    </td>
+
+    <td style="text-align: center">
+        {$T.lstSla.Target3}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstSla.Sla3==-1}
+            N/A
+        {#else}
+            {$T.lstSla.Sla3}%
+        {#/if}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstSla.Sla3 >= 90}
+            <img src="/images/admin/icon/green.png" alt="" />
+        {#elseif $T.lstSla.Sla3 >= 80 && $T.lstSla.Sla3 < 90}
+            <img src="/images/admin/icon/yellow.png" alt="" />
+        {#elseif $T.lstSla.Sla3 < 80 && $T.lstSla.Sla3 != -1}
+            <img src="/images/admin/icon/red.png" alt="" />
+        {#/if}
+    </td>
+</tr>
+{#/for}

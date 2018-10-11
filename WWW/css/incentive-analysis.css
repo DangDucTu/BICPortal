@@ -1,0 +1,73 @@
+﻿.incentive table.channel td, .incentive table.channel th
+{
+    border: 1px solid #215967;
+    text-align: left;
+    padding-left: 5px;
+}
+.execute-hightlight
+{
+    margin-top: 5px;
+}
+.execute-hightlight h4
+{
+    color: Red;
+    text-decoration: underline;
+    text-align: left;            
+}
+.execute-hightlight p
+{
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+}
+        
+.incentive table.tb-amount
+{
+    float: left;
+    width: 961px;
+    margin-left: -1px;
+}
+.incentive table.tb-amount th
+{
+    text-align: center;
+    background: #C4D79B;
+    padding-bottom: 9px !important;
+    padding-top: 9px !important;
+}
+.incentive table.tb-amount td
+{
+    text-align: right;
+}
+.incentive table.tb-amount td, .incentive table.tb-amount th
+{
+    border: 1px solid #215967;
+    padding: 0 5px;
+}
+        
+.incentive .current-month-3, .incentive .current-month-19, .incentive .current-month-20
+{
+    background: #f2dcdb;
+    font-size: 12px;
+    font-weight: bold;
+}
+        
+.incentive-amount-filter
+{
+    margin-top: 5px;
+    width: 140px;
+    float: right;
+}
+.incentive-amount-filter #ctl00_ContentPlaceHolder1_cbDivision
+{
+    margin-bottom: 5px;
+}
+        
+.incentive .glossary td
+{
+    padding-left: 3px;
+    text-align: left;
+}
+.incentive .glossary td, .incentive .glossary th
+{
+    border: 1px solid #215967;
+}

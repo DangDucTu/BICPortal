@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VPBReportBackup20170724" Class="ReportDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=VPBReportBackup20170724;User ID=sa" SettingsObjectName="DataContext.Properties.Settings" SettingsPropertyName="VPBReportBackup20170724ConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspReportDelete" Method="uspReportDelete">
+    <Parameter Name="reportId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportUpdateStatus" Method="uspReportUpdateStatus">
+    <Parameter Name="reportId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportGetById" Method="uspReportGetById">
+    <Parameter Name="reportId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspReportGetByIdResult">
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DateExpire" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateUpload" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeKeyData" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccountBackup" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspReportListUpdateStatus" Method="uspReportListUpdateStatus">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportCreateByFrequency" Method="uspReportCreateByFrequency">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="toDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="action" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportListGetListClient" Method="uspReportListGetListClient">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspReportListGetListClientResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AdminId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspReportListRemoveClient" Method="uspReportListRemoveClient">
+    <Parameter Name="clientId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportListUpdateClient" Method="uspReportListUpdateClient">
+    <Parameter Name="adminIds" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportGetListForClient" Method="uspReportGetListForClient">
+    <Parameter Name="adminId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="toDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="page" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="totalRecord" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="uspReportGetListForClientResult">
+      <Column Name="RowNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="StatusComplete" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="ReportName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DateExpire" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Deadline" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateUpload" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Client" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeKeyData" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccountBackup" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RLDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspReportListGetClient" Method="uspReportListGetClient">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="accountName" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspReportListGetClientResult">
+      <Column Name="AdminId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspRequestFormUpdate" Method="uspRequestFormUpdate">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="requestForm" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspSendEmailReport" Method="uspSendEmailReport">
+    <ElementType Name="uspSendEmailReportResult">
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalReport" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspReportListUpdateTotalDownload" Method="uspReportListUpdateTotalDownload">
+    <Parameter Name="fileName" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportGetListForView" Method="uspReportGetListForView">
+    <Parameter Name="reportName" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="accountName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="departmentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="toDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="page" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="totalRecord" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="uspReportGetListForViewResult">
+      <Column Name="RowNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DateExpire" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Deadline" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateUpload" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Client" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeKeyData" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccountBackup" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RLDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspReportUpload" Method="uspReportUpload">
+    <Parameter Name="reportId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fileName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="accountUpload" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="timeKeyData" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="linkReport" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportListInsert" Method="uspReportListInsert">
+    <Parameter Name="requestId" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="account" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="accountBackup" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="isAuto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="toolOfReport" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportListUpdate" Method="uspReportListUpdate">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="requestId" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="account" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="accountBackup" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="isAuto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="toolOfReport" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReportListGetInfo" Method="uspReportListGetInfo">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspReportListGetInfoResult">
+      <Column Name="ReportListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Client" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailClient" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Deadline" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Frequency" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountBackup" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsAuto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Request_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspReportListGetList" Method="uspReportListGetList">
+    <Parameter Name="reportName" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="departmentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="frequency" Type="System.Int32" DbType="Int" />
+    <Parameter Name="account" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspReportListGetListResult">
+      <Column Name="ReportListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ReportCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RequestId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Client" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailClient" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Deadline" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccountBackup" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsAuto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RequestForm" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalDownload" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspReportGetList" Method="uspReportGetList">
+    <Parameter Name="reportName" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="pic" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="reportType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="reportUpdateType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="managerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="frequency" Type="System.Int32" DbType="Int" />
+    <Parameter Name="accountName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="fromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="toDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="isComplete" Type="System.Int32" DbType="Int" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isBackup" Type="System.Int32" DbType="Int" />
+    <Parameter Name="page" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="totalRecord" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="uspReportGetListResult">
+      <Column Name="RowNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="ReportName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ReportCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ReportListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DateExpire" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateUpload" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeKeyData" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountBackup" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccountUpload" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RLDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsComplete" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StatusComplete" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Client" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Deadline" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsAuto" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportType" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspReportInsert" Method="uspReportInsert">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dateExpire" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

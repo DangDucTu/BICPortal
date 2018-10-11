@@ -1,0 +1,89 @@
+﻿#ctl00_ContentPlaceHolder1_ddlMonth {float: right;}
+.filter
+{
+    margin-top: 6px;
+    float: right;
+}
+table.overview
+{
+    width: 1000px;
+    margin: 0 auto;
+}
+table.overview tr th
+{
+    font-size: 13px;
+}
+table.overview tr td
+{
+    font-size: 25px;
+    color: #215967;
+    font-weight: bold;
+    padding-top: 10px;
+    font-family: Trebuchet MS;
+}
+table.overview tr th.left
+{
+    text-align: right;
+    font-size: 15px;
+    color: #444;
+    font-style: italic;
+    width: 200px;
+    line-height: 22px;
+}
+        
+table.tb-by-month
+{
+    float: left;
+    margin-left: -1px;
+    width: 931px;
+    
+    margin-top: 5px;
+}
+table.tb-by-month-title
+{
+    width: 250px;
+    float: left;
+    margin-top: 5px;    
+}
+table.tb-by-month-title tr td
+{
+    text-align: left;
+    font-weight: bold;
+    padding: 2px 3px 2px 5px;
+    border: 1px solid #215967;
+}
+table.tb-by-month tr td
+{
+    text-align: center;
+    padding: 2px 3px 2px 5px;
+    border: 1px solid #215967;
+}
+table.tb-by-month-title tr.even, table.tb-by-month tr.even
+{
+    background: #DAEEF3;
+}
+table.tb-by-month-title th, table.tb-by-month th
+{
+    background: #215967;
+    color: #eee;
+    border: 1px solid #215967;
+}
+        
+.incentive-bottom
+{
+    margin: 10px 0;
+}
+table.tb-top-5
+{
+    width: 100%;
+    margin-bottom: 10px;
+}
+table.tb-top-5 tr th
+{
+    color: #eee;
+    background: #215967;
+}
+table.tb-top-5 tr th, table.tb-top-5 tr td
+{
+    border: 1px solid #333;
+}

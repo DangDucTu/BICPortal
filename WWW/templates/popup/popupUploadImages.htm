@@ -1,0 +1,46 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopup_Sample" class="_divPopup_border _divPopup_wrapperMain" style="width: 450px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div id="spTitlepopImageCollection" style="float: left;" class="titlepopup">
+                Thêm ảnh
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Đóng" onclick="admin_pages_Product.close()">
+                &nbsp;</div>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <form id="frmImageOther">
+        <div class="content_popup">
+            <div class="form">
+                <div class="row">
+                    <ul>
+                        <li class="text">Chọn File ảnh: </li>
+                        <li>
+                            <input type="file" id="txtUrlOther" name="txtUrlOther" tabindex="14" accept="image/jpeg,image/gif,image/png" style="width: 180px;" />
+                            <input type="hidden" id="hfOldImageUpload" name="hfOldImageUpload" />
+                        </li>
+                        <li style="position: absolute; top: 122px; left: 355px; font-weight: bold;"><span
+                            id="spPreviewImage"></span></li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+        </form>
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li><a id="popup_save" onclick="admin_pages_Product.saveImage()" href="javascript:;">Thêm</a></li>
+                <li><a id="popup_cancel" onclick="admin_pages_Product.close()" href="javascript:;">Đóng</a></li>
+            </ul>
+            <div style="clear: both;">
+            </div>
+        </div>
+    </div>
+</div>

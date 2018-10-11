@@ -1,0 +1,16 @@
+﻿{#foreach $T as lstSmeIncentive}
+    <tr class="{COMMON.getRowStyle($T.lstSmeIncentive$index + 1)}">
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Jan)}">{$T.lstSmeIncentive.Jan.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Feb)}">{$T.lstSmeIncentive.Feb.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Mar)}">{$T.lstSmeIncentive.Mar.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Apr)}">{$T.lstSmeIncentive.Apr.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.May)}">{$T.lstSmeIncentive.May.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Jun)}">{$T.lstSmeIncentive.Jun.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Jul)}">{$T.lstSmeIncentive.Jul.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Aug)}">{$T.lstSmeIncentive.Aug.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Sep)}">{$T.lstSmeIncentive.Sep.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Oct)}">{$T.lstSmeIncentive.Oct.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Nov)}">{$T.lstSmeIncentive.Nov.format(0, 3, ',', '.')}</td>
+        <td class="{page_SmeIncentive.getClass($T.lstSmeIncentive$index,$T.lstSmeIncentive.Dec)}">{$T.lstSmeIncentive.Dec.format(0, 3, ',', '.')}</td>
+    </tr>
+{#/for}

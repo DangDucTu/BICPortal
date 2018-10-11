@@ -1,0 +1,65 @@
+﻿{#foreach $T as lstReportList}
+<tr class="{COMMON.getRowStyle($T.lstReportList$index + 1)}">
+    <td style="text-align: center">
+        {$T.lstReportList$index + 1}
+    </td>
+    <td style="text-align: center">
+        BICC_REP_{$T.lstReportList.Department}_{$T.lstReportList.ReportCode}
+    </td>
+    <td style="text-align: center">
+        BICC_REQUEST_{$T.lstReportList.RequestId}
+    </td>
+    <td id="ReportName{$T.lstReportList.ReportListId}" style="text-align: left">
+        {#if $T.lstReportList.Description != ''}
+            <a href="javascript:;" class="spanTooltip" title="{$T.lstReportList.Description}">{$T.lstReportList.ReportName}</a>
+        {#else}
+            <a href="javascript:;">{$T.lstReportList.ReportName}</a>
+        {#/if}
+    </td>    
+    <td id="Frequency{$T.lstReportList.ReportListId}" style="text-align: center">
+        {$T.lstReportList.Frequency}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.Deadline}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstReportList.IsAuto == 1}
+            <img src="/images/admin/icon/red.png" title="Auto" />
+        {#else}
+            <img src="/images/admin/icon/green.png" title="Normal" />
+        {#/if}
+    </td>    
+    <td style="text-align: center">
+        {$T.lstReportList.Account}
+    </td>
+    <!--<td style="text-align: center">
+        {$T.lstReportList.AccountBackup}
+    </td>-->
+    <td style="text-align: left">
+        <a href="mailto:{$T.lstReportList.EmailClient}" style="color: Blue; text-decoration: underline;">{$T.lstReportList.EmailClient}</a>
+    </td>
+    <td style="color:Red;font-weight:bold">
+        {$T.lstReportList.TotalDownload}
+    </td>
+    <td>
+        <a class="aContextFunction" href="javascript:void(0)">Function</a>
+        <div class="divContextFunction">
+            <ul>
+                {#if $T.lstReportList.Status == 1}
+                    <li><a href="javascript:void(0)" onclick="page_ReportList.showPopupCreateReport({$T.lstReportList.ReportListId})">
+                    Create report</a></li>
+
+                    <li><a href="javascript:void(0)" onclick="page_ReportList.functionOnItem(2,{$T.lstReportList.ReportListId})">
+                    Edit</a></li>
+                    <li><a href="javascript:void(0)" onclick="page_ReportList.functionOnItem(5,{$T.lstReportList.ReportListId})">
+                    Close</a></li>
+                {#/if}
+                {#if $T.lstReportList.Status == 2}
+                    <li><a href="javascript:void(0)" onclick="page_ReportList.functionOnItem(3,{$T.lstReportList.ReportListId})">
+                    Active</a></li>                    
+                {#/if}
+            </ul>
+        </div>
+    </td>
+</tr>
+{#/for}

@@ -1,0 +1,61 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupUpdateRole" class="_divPopup_border _divPopup_wrapperMain" style="width: 380px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Add New Group Function
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Đóng">&nbsp;</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content_popup">
+            <div class="form"  style="padding-left: 30px;">
+                <div class="row">
+                    <ul>
+                        <li class="textLeft" style="width: 100%">Group Name:</li>
+                        <li>
+                            <input type="hidden" id="hfRoleId" />
+                            <input type="text" tabindex="1" id="txtName" style="width: 300px;" maxlength="100" fempty="*"/>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="row">
+                    <ul>
+                        <li class="textLeft" style="width: 100%">Description:</li>
+                        <li><textarea maxlength="500" id="txtDescription" tabindex="4" style="height: 100px;width: 300px;"></textarea></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li class="textLeft" style="width: 100%">Status:</li>
+                        <li><input type="radio" tabindex="2" value="Hoạt động" id="rdActive" checked="checked"
+                                   title="Hoạt động" name="Status" />
+                            <label for="rdActive" style="cursor:pointer;" >Active </label>
+                        </li>
+                        <li>
+                            <input type="radio" tabindex="3" value="Active" id="rdDeactive" title="Lock" name="Status"
+                                   style="float: none;" />
+                            <label for="rdDeactive" style="cursor:pointer;" >Lock </label>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li><input type="button" value="Update" id="popup_save"/></li>
+                <li><input type="button" value="Close" id="popup_cancel"/></li>
+            </ul>
+            <div style="clear: both;"></div>
+        </div>
+        <div style="clear: both;">
+        </div>
+    </div>
+</div>

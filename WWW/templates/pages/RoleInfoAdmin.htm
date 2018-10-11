@@ -1,0 +1,13 @@
+﻿{#foreach $T as account}
+<tr>
+    <td>
+        <input type="checkbox" class="cbRecord cbincol" id="ACC{$T.account.AdminId}" />
+    </td>
+    <td>
+        <a href="/pages/AdminInfo.aspx?Id={$T.account.AdminId}" title="View info account">{$T.account.Name}</a>
+    </td>
+    <td>
+        <a href="javascript:" id="AC{$T.account.AdminId}" class="delAcc" title="Remove account {$T.account.FullName}">Xóa</a>
+    </td>
+</tr>
+{#/for}

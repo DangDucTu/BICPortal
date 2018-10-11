@@ -1,0 +1,16 @@
+﻿{#foreach $T as lstApplication}
+<tr class="{COMMON.getRowStyle($T.lstApplication$index + 1)}  app{$T.lstApplication$index}">
+    <td style="text-align: right">
+        {$T.lstApplication._4.format(0, 3, '.', ',')}%
+    </td>
+    <td style="text-align: right">
+        {$T.lstApplication._3.format(0, 3, '.', ',')}%
+    </td>
+    <td style="text-align: right">
+        {$T.lstApplication._2.format(0, 3, '.', ',')}%
+    </td>
+    <td style="text-align: right">
+        {$T.lstApplication._1.format(0, 3, '.', ',')}%
+    </td> 
+</tr>
+{#/for}

@@ -1,0 +1,274 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageAdmin.master" AutoEventWireup="true" CodeFile="RetailSalesProductivity.aspx.cs" Inherits="pages_charts_RetailSalesProductivity" %>
+
+<%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxPivotGrid.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPivotGrid" TagPrefix="dx" %>
+
+<%@ Register assembly="DevExpress.XtraCharts.v12.2.Web, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts.Web" tagprefix="dxchartsui" %>
+<%@ Register assembly="DevExpress.XtraCharts.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts" tagprefix="cc1" %>
+
+<%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+            .dashboard-title 
+            {
+                padding: 0;
+                text-align: center;
+                font-size: 25px;
+                font-family: 'Trebuchet MS';
+                color: #666;
+                line-height: 30px;
+            }
+           .box-chart 
+           {
+               float: left;
+               border: 1px solid #0D8142;
+               margin-left: 30px;
+               margin-bottom: 20px;
+           }
+           .box-chart > .title 
+           {
+               padding: 7px 0;
+               text-align: center;
+               border-bottom: 1px solid #0D8142;
+               background: #0D8142;
+               text-transform: uppercase;
+               font-size: 13px;
+               color: #fff;
+           }
+           .box-chart > .chart {float: left; margin: 0 10px 10px 10px;}
+           
+           .row-style {background: #DCDCDC;}
+           .dxgvHeader 
+           {
+               font-weight: bold;
+           }
+
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            $("table.dxgvTable tr.dxgvDataRow").each(function (index) {
+                if (index % 2 == 1) {
+                    $(this).addClass("row-style");
+                }
+            });
+        });
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="chart-container">
+    
+    <p class="dashboard-title">MONTHLY RETAIL PRODUCTIVITY <br /> LOAN PRODUCTS</p>	
+        <div style="margin-bottom: 5px">
+            <ul style="float: left">
+                <li style="float: left; width: 230px; padding: 2px 4px 0 0; font-weight: bold; text-align: right;
+                        font-family: Tahoma; font-size: 12px;">Select Month:</li>
+                <li style="float: left;">
+                    <asp:DropDownList ID="ddlMonth1" CssClass="select" runat="server" AutoPostBack="True"
+                        OnSelectedIndexChanged="ddlMonth1_SelectedIndexChanged">
+                        <asp:ListItem Value="5">May 2014</asp:ListItem>
+                        <asp:ListItem Value="4">Apr 2014</asp:ListItem>
+                        <asp:ListItem Value="3">Mar 2014</asp:ListItem>
+                        <asp:ListItem Value="2">Feb 2014</asp:ListItem>
+                        <asp:ListItem Value="1">Jan 2014</asp:ListItem>
+                    </asp:DropDownList>
+                </li>
+            </ul>
+            <p style="padding: 5px 0 0; float: right; margin-right: 150px;">
+                Balance unit: Million VND</p>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="box-chart">
+            <p class="title">PRODUCTIVITY PER SALESPERSON</p>
+            <div class="form">
+                <div class="row">
+                    <ul style="float: right">
+                        <li class="text">Region:</li>
+                        <li>
+                            <asp:DropDownList ID="ddlRegion" CssClass="select" Width="80px" runat="server" 
+                                AutoPostBack="True" onselectedindexchanged="ddlRegion_SelectedIndexChanged">
+                                <asp:ListItem Value="">[-- All --]</asp:ListItem>
+                                <asp:ListItem Value="VUNG 01">Region1</asp:ListItem>
+                                <asp:ListItem value="VUNG 02">Region2</asp:ListItem>
+                                <asp:ListItem value="VUNG 03">Region3</asp:ListItem>
+                                <asp:ListItem value="VUNG 04">Region4</asp:ListItem>
+                                <asp:ListItem value="VUNG 05">Region5</asp:ListItem>
+                                <asp:ListItem value="VUNG 06">Region6</asp:ListItem>
+                                <asp:ListItem value="VUNG 07">Region7</asp:ListItem>
+                                <asp:ListItem value="VUNG 08">Region8</asp:ListItem>
+                                <asp:ListItem value="VUNG 09">Region9</asp:ListItem>
+                                <asp:ListItem value="VUNG 10">Region10</asp:ListItem>
+                            </asp:DropDownList>
+                        </li>
+                        <li class="text">Product Name:</li>
+                        <li>
+                            <asp:DropDownList ID="ddlProductName" CssClass="select" Width="150px" runat="server" 
+                                AutoPostBack="True" 
+                                onselectedindexchanged="ddlProductName_SelectedIndexChanged">
+                                <asp:ListItem Value="">[-- All --]</asp:ListItem>
+                                <asp:ListItem Value="Home Loan">Home Loan</asp:ListItem>
+                                <asp:ListItem Value="Auto Loan">Auto Loan</asp:ListItem>
+                                <asp:ListItem Value="Unsecured Loan">Unsecured Loan</asp:ListItem>
+                                <asp:ListItem Value="Consumption Loan">Consumption Loan</asp:ListItem>
+                                <asp:ListItem Value="Household Business Loan">Household Business Loan</asp:ListItem>
+                                <asp:ListItem Value="Passbook Loan">Passbook Loan</asp:ListItem>
+                                <asp:ListItem Value="Securities Loan">Securities Loan</asp:ListItem>
+                                <asp:ListItem Value="Study Loan">Study Loan</asp:ListItem>
+                                <asp:ListItem Value="Others loan">Others Loan</asp:ListItem>
+                                <asp:ListItem Value="Secured Overdraft">Secured Overdraft</asp:ListItem>
+                                <asp:ListItem Value="Secured Overdraft - Securities">Secured Overdraft - Securities</asp:ListItem>
+                                <asp:ListItem Value="Unsecured Overdraft">Unsecured Overdraft</asp:ListItem>
+                                <asp:ListItem Value="UPL">UPL</asp:ListItem>
+                            </asp:DropDownList>
+                        </li>                        
+                        <%--<li class="text">Account:</li>
+                        <li>
+                            <asp:DropDownList ID="ddlCriteria" CssClass="select" runat="server" 
+                                onselectedindexchanged="ddlCriteria_SelectedIndexChanged" AutoPostBack="true">                                
+                                <asp:ListItem Selected="True" value="Disbursement/Salesperson">Disbursement/Salesperson</asp:ListItem>
+                                <asp:ListItem value="Accounts/Salesperson">Accounts/Salesperson</asp:ListItem>
+                            </asp:DropDownList>
+                        </li>--%>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>                
+            </div>
+            <div class="chart">
+                <dxchartsui:WebChartControl ID="WebChartControl1" Height="230px" Width="360px" 
+                    runat="server" oncustomdrawseries="WebChartControl1_CustomDrawSeries">
+                </dxchartsui:WebChartControl>
+            </div>
+            <div class="chart">
+                <dxchartsui:WebChartControl ID="WebChartControl2" Height="230px" Width="400px" 
+                    runat="server" oncustomdrawseries="WebChartControl2_CustomDrawSeries">
+                </dxchartsui:WebChartControl>
+            </div>
+        </div>
+        
+        <div class="box-chart">
+            <p class="title">PRODUCTIVITY BY PRODUCTS</p>
+            <div class="form">
+                <div class="row">
+                    <ul>
+                        <li class="text">Region:</li>
+                        <li>
+                            <asp:DropDownList ID="ddlRegion1" CssClass="select" Width="100px" runat="server" 
+                                AutoPostBack="True" 
+                                onselectedindexchanged="ddlRegion1_SelectedIndexChanged">
+                                <asp:ListItem Value="">[-- All --]</asp:ListItem>                                                                
+                                <asp:ListItem Value="VUNG 01">Region1</asp:ListItem>
+                                <asp:ListItem value="VUNG 02">Region2</asp:ListItem>
+                                <asp:ListItem value="VUNG 03">Region3</asp:ListItem>
+                                <asp:ListItem value="VUNG 04">Region4</asp:ListItem>
+                                <asp:ListItem value="VUNG 05">Region5</asp:ListItem>
+                                <asp:ListItem value="VUNG 06">Region6</asp:ListItem>
+                                <asp:ListItem value="VUNG 07">Region7</asp:ListItem>
+                                <asp:ListItem value="VUNG 08">Region8</asp:ListItem>
+                                <asp:ListItem value="VUNG 09">Region9</asp:ListItem>
+                                <asp:ListItem value="VUNG 10">Region10</asp:ListItem>
+                            </asp:DropDownList>
+                        </li>
+                                                        
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>                
+            </div>
+            <div class="chart">
+                <dxchartsui:WebChartControl ID="WebChartControl3" Height="230px" Width="410px" runat="server">
+                </dxchartsui:WebChartControl>
+            </div>
+        </div>
+        <div class="box-chart">
+            <p class="title">TOP SALESPEOPLE BY DISBURSEMENT</p>
+            <div class="chart" style="padding-top: 10px">
+                <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" 
+                    DataSourceID="SqlDataSource1" Theme="Default">
+                    <Columns>
+                        <dx:GridViewDataTextColumn Caption="SALE NAME" FieldName="Sale_Name" 
+                            VisibleIndex="0">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <CellStyle HorizontalAlign="Left">
+                            </CellStyle>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="Region" VisibleIndex="1" 
+                            Caption="REGION">
+                            <HeaderStyle HorizontalAlign="Center" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="Position" VisibleIndex="2" 
+                            Caption="POSITION">
+                            <HeaderStyle HorizontalAlign="Center" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn 
+                            FieldName="TOTAL" VisibleIndex="3" ReadOnly="True" Caption="DISBURSEMENT">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <CellStyle HorizontalAlign="Right">
+                            </CellStyle>
+                        </dx:GridViewDataTextColumn>
+                    </Columns>
+                </dx:ASPxGridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:DASHBOARDConnectionString %>" 
+                    SelectCommand="uspTopSalesPeople" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+            </div>
+        </div>
+        <div class="box-chart">
+            <p class="title">PRODUCTIVITY COMPARED TO 3 MONTH AVERAGE</p>
+            <div class="chart" style="padding-top: 10px">
+                <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" 
+                    DataSourceID="SqlDataSource2" 
+                    oncustomcolumndisplaytext="ASPxGridView2_CustomColumnDisplayText" 
+                    Theme="Default">
+                    <Columns>
+                        <dx:GridViewDataTextColumn FieldName="REGION" VisibleIndex="0">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="3 MONTH AVG" FieldName="3M_AVERAGE" 
+                            VisibleIndex="1">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <CellStyle HorizontalAlign="Right">
+                            </CellStyle>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="CURRENT MONTH" FieldName="CURRENT_MONTH" 
+                            VisibleIndex="2">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <CellStyle HorizontalAlign="Right">
+                            </CellStyle>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="PERCENT" ReadOnly="True" VisibleIndex="4" 
+                            Caption="DIFFERENCE">
+                        <HeaderStyle HorizontalAlign="Center" />
+                            <CellStyle HorizontalAlign="Right">
+                            </CellStyle>
+                        </dx:GridViewDataTextColumn>
+                    </Columns>
+                    <SettingsPager PageSize="15">
+                    </SettingsPager>
+                </dx:ASPxGridView>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:DASHBOARDConnectionString %>" 
+                    SelectCommand="uspRetailCompareAverage" SelectCommandType="StoredProcedure">
+                </asp:SqlDataSource>
+            </div>
+        </div>
+        <div class="box-chart">
+            <p class="title">20% staff vs. 80% staff</p>
+            <div class="chart" style="padding-top: 10px">
+                <dxchartsui:WebChartControl ID="WebChartControl4" Width="390px" Height="267px" runat="server">
+                </dxchartsui:WebChartControl>
+            </div>
+            <%--<div class="chart" style="padding-top: 10px">
+                <dxchartsui:WebChartControl ID="WebChartControl5" runat="server">
+                </dxchartsui:WebChartControl>
+            </div>--%>
+        </div>
+        <div class="clear"></div>
+     </div>
+       
+</asp:Content>
+

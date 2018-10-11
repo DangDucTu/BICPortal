@@ -1,0 +1,16 @@
+﻿{#foreach $T as lstAccount}
+<tr id="client{$T.lstAccount$index + 1}" class="{COMMON.getRowStyle($T.lstAccount$index + 1)}">
+    <td>
+        {$T.lstAccount$index + 1}
+    </td>
+    <td style="text-align: left">
+        {$T.lstAccount.Name}
+    </td>
+    <td style="text-align: left">
+        {$T.lstAccount.FullName}
+    </td>    
+    <td>
+        <a href="javascript:;" onclick="page_ReportList.removeClient({$T.lstAccount.Id})" title="Remove"><img src="/images/admin/icon/remove.png" /></a>
+    </td>
+</tr>
+{#/for}

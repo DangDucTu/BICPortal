@@ -1,0 +1,21 @@
+﻿{#foreach $T as lstActualTarget}
+<tr class="{COMMON.getRowStyle($T.lstActualTarget$index + 1)}">
+    <td style="text-align: left">
+        {$T.lstActualTarget.ProductName}
+    </td>
+    <td style="text-align: right">
+        {$T.lstActualTarget.Actual.format(2, 3, '.', ',')}
+    </td>
+    <td style="text-align: right">
+        {$T.lstActualTarget.Target}
+    </td>
+    <td style="text-align: right">
+        {#if $T.lstActualTarget.Difference > 0}
+            <img src="/images/admin/icon/red.png" />
+        {#else}
+            <img src="/images/admin/icon/green.png" />
+        {#/if}
+        {$T.lstActualTarget.Difference.format(2, 3, '.', ',')}
+    </td>    
+</tr>
+{#/for}

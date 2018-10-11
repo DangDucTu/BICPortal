@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VPBReportLocal" Class="HRDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.39.36.80;Initial Catalog=VPBReportLocal;Persist Security Info=True;User ID=sa" SettingsObjectName="DataContext.Properties.Settings" SettingsPropertyName="VPBReportLocalConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspHRGetList" Method="uspHRGetList">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="saleCode" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="saleName" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="team" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="page" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="totalRecord" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="uspHRGetListResult">
+      <Column Name="RowNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SALE_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DAO" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SALE_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="SALE_NAME_TV" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="GENDER" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="REGION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BRANCH_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PROJECT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHANNEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TEAM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUB_POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DATE_SALES_START" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DATE_SALES_OFF" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DOB_SALES" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NATIONAL_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PHONE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NOTE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PAYROLL_ACCT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HR_STAFF" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FINGERPRINT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CODE_FINN" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="RESIGNED_REASON" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspHRGetTeam" Method="uspHRGetTeam">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspHRGetTeamResult">
+      <Column Name="TEAM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspHrSubPositionGetList" Method="uspHrSubPositionGetList">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="position" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspHrSubPositionGetListResult">
+      <Column Name="SUB_POSITION" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspHrPositionGetList" Method="uspHrPositionGetList">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspHrPositionGetListResult">
+      <Column Name="POSITION" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspHrChannelGetList" Method="uspHrChannelGetList">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspHrChannelGetListResult">
+      <Column Name="CHANNEL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspHrSaleOff" Method="uspHrSaleOff">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="saleCode" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="dateOff" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspHrInsert" Method="uspHrInsert">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dao" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="hrStaff" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="saleName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="saleNameTv" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="gender" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="branchCode" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="team" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="position" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="subPosition" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dateStart" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="nationalId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="phone" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="dob" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="payroll" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspHrGetInfo" Method="uspHrGetInfo">
+    <Parameter Name="saleCode" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="uspHrGetInfoResult">
+      <Column Name="SALE_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DAO" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="HR_STAFF" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SALE_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="SALE_NAME_TV" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="GENDER" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="REGION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BRANCH_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PROJECT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHANNEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TEAM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUB_POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DATE_SALES_START" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DATE_SALES_OFF" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DOB_SALES" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NATIONAL_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PHONE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NOTE" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="PAYROLL_ACCT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspHRGetListNewSales" Method="uspHRGetListNewSales">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="uspHRGetListNewSalesResult">
+      <Column Name="RowNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SALE_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DAO" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SALE_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="SALE_NAME_TV" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="GENDER" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="REGION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BRANCH_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PROJECT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHANNEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TEAM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUB_POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DATE_SALES_START" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DATE_SALES_OFF" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DOB_SALES" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NATIONAL_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PHONE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NOTE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PAYROLL_ACCT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HR_STAFF" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FINGERPRINT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CODE_FINN" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="RESIGNED_REASON" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspHrGetListByMonth" Method="uspHrGetListByMonth">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="month" Type="System.String" DbType="VarChar(2)" />
+    <ElementType Name="uspHrGetListByMonthResult">
+      <Column Name="RowNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SALE_CODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DAO" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SALE_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="SALE_NAME_TV" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="GENDER" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="REGION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BRANCH_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PROJECT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHANNEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TEAM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUB_POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DATE_SALES_START" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DATE_SALES_OFF" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DOB_SALES" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NATIONAL_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PHONE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NOTE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PAYROLL_ACCT" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HR_STAFF" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FINGERPRINT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CODE_FINN" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="RESIGNED_REASON" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspHrUpdate" Method="uspHrUpdate">
+    <Parameter Name="saleSupport" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="saleCode" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="dao" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="hrStaff" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="saleName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="saleNameTv" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="gender" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="team" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="dateStart" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="nationalId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="phone" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="dob" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="payroll" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

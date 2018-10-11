@@ -1,0 +1,25 @@
+﻿{#foreach $T as lstProductivityCurrent}
+<tr class="{COMMON.getRowStyle($T.lstProductivityCurrent$index + 1)}">
+    <td style="text-align: left" class="{page_SaleProductivity.addClassProductivity($T.lstProductivityCurrent.product)}">
+        {page_SaleProductivity.getValueProductivity($T.lstProductivityCurrent.product)}
+    </td>
+    <td class="{page_SaleProductivity.addClassProductivity($T.lstProductivityCurrent.branch_psedep)}">
+        {page_SaleProductivity.getValueProductivity($T.lstProductivityCurrent.branch_psedep)}
+    </td>
+    <td class="{page_SaleProductivity.addClassProductivity($T.lstProductivityCurrent.branch_pseloan)}">
+        {page_SaleProductivity.getValueProductivity($T.lstProductivityCurrent.branch_pseloan)}
+    </td>
+    <td class="{page_SaleProductivity.addClassProductivity($T.lstProductivityCurrent.branch_pb)}">
+        {page_SaleProductivity.getValueProductivity($T.lstProductivityCurrent.branch_pb)}
+    </td>
+    <td class="{page_SaleProductivity.addClassProductivity($T.lstProductivityCurrent.ac_cl)}">
+        {page_SaleProductivity.getValueProductivity($T.lstProductivityCurrent.ac_cl)}
+    </td>
+    <td class="{page_SaleProductivity.addClassProductivity($T.lstProductivityCurrent.ac_wb)}">
+        {page_SaleProductivity.getValueProductivity($T.lstProductivityCurrent.ac_wb)}
+    </td>
+    <td class="{page_SaleProductivity.addClassProductivity($T.lstProductivityCurrent.ac_ap)}">
+        {page_SaleProductivity.getValueProductivity($T.lstProductivityCurrent.ac_ap)}
+    </td>
+</tr>
+{#/for}

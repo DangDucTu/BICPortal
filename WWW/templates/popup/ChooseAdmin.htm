@@ -1,0 +1,52 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupChooseAdmin" class="_divPopup_border _divPopup_wrapperMain" style="width: 450px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Chọn tài khoản
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Đóng">&nbsp;</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content_popup">
+            <div class="form">
+                <div class="row">
+                    <ul>
+                        <li class="text">Tên tài khoản:</li>
+                        <li><input type="text" id="txtUserName" style="width: 178px;"/></li>
+                        <li style="width:80px; min-width:80px"><input type="button" value="Tìm kiếm" class="button" id="btnSearchAdmin"/></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="row" style="max-height: 269px;overflow: auto;">
+                    <table class="table" width="100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" class="checkallAdmin"/>
+                                </th>
+                                <th>
+                                    Tên tài khoản
+                                </th>
+                                <th>
+                                    Họ tên
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbdListAdmin">
+                        </tbody>
+                    </table>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li><a id="popup_save" href="javascript:;">Cập nhật</a></li>
+                <li><a id="popup_cancel" href="javascript:;">Đóng</a></li>
+                </ul>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</div>

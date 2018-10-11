@@ -1,0 +1,50 @@
+﻿{#if $T.TotalRecord > 0} {$index=1} {#foreach $T.Items as item}
+<tr class="{COMMON.getRowStyle($index)}">
+<!--    <td class="center">
+        <input type="checkbox" id="{$T.item.AdminId}" class="checkItem" value="{$T.item.AdminId}" />
+    </td>-->
+    <td class="center">
+        {$T.item$index+1}
+    </td>
+    <td>
+        {$T.item.Name}
+    </td>
+    <td>
+        {$T.item.FullName}
+    </td>            
+    <td>
+        {#if ($T.item.Status == 0)} Locked {#/if} {#if ($T.item.Status == 1)} Active {#/if}
+    </td>
+    <td class="function last">
+        <a class="aContextFunction" href="javascript:void(0)">Function</a>
+        <div class="divContextFunction">
+            <ul>
+                <li><a href="javascript:void(0)" onclick="pages_Admin.functionOnItem(1,{$T.item.AdminId})">
+                    <img src="/images/admin/icon/icon_edit.png" />
+                    Edit</a></li>
+                <li><a href="javascript:void(0)" onclick="pages_Admin.functionOnItem(5,{$T.item.AdminId})">
+                    <img src="/images/admin/icon/key_pass.png" />
+                    Change Password</a></li>
+                {#if ($T.item.Status==1)}
+                <li><a href="javascript:void(0)" onclick="pages_Admin.functionOnItem(2,{$T.item.AdminId})">
+                    <img src="/images/admin/icon/icon_lock.png" />
+                    Lock</a></li>
+                {#else}
+                <li><a href="javascript:void(0)" onclick="pages_Admin.functionOnItem(3,{$T.item.AdminId})">
+                    <img src="/images/admin/icon/icon_active.png" />
+                    Activate</a></li>
+                {#/if}
+                <li style="border-top: solid 1px #eee"><a href="javascript:void(0)" onclick="pages_Admin.functionOnItem(4,{$T.item.AdminId})">
+                    <img src="/images/admin/icon/icon_delete.png" />
+                    Delete</a></li>
+            </ul>
+        </div>
+    </td>
+</tr>
+{#/for} {#else}
+<tr class="notice_msg">
+    <td colspan="9" style="padding-left: 35px">
+        Không tìm thấy kết quả nào!
+    </td>
+</tr>
+{#/if} 

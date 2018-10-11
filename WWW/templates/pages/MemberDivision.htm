@@ -1,0 +1,16 @@
+﻿{#foreach $T as lstAccount}
+<tr class="{COMMON.getRowStyle($T.lstAccount$index + 1)}">
+    <td style="text-align: center">
+        {$T.lstAccount$index + 1}
+    </td>
+    <td>
+        {$T.lstAccount.Name}
+    </td>
+    <td>
+        {$T.lstAccount.FullName}
+    </td>    
+    <td>
+        <a href="javascript:;" onclick="pages_Division.removeMember({$T.lstAccount.AdminId})" title="Remove"><img src="/images/admin/icon/remove.png" /></a>
+    </td>
+</tr>
+{#/for}

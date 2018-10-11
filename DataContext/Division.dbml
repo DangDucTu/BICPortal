@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VPBReport" Class="DivisionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=VPBReport;User ID=sa" SettingsObjectName="DataContext.Properties.Settings" SettingsPropertyName="VPBReportConnectionString4" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspDivisionDelete" Method="uspDivisionDelete">
+    <Parameter Name="division_Id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspDivisionGetAdminListByDivisionId" Method="uspDivisionGetAdminListByDivisionId">
+    <Parameter Name="divisionId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspDivisionGetAdminListByDivisionIdResult">
+      <Column Name="AdminId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspDivisionGetNotInDivisionAdminList" Method="uspDivisionGetNotInDivisionAdminList">
+    <ElementType Name="uspDivisionGetNotInDivisionAdminListResult">
+      <Column Name="AdminId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspDivisionInsert" Method="uspDivisionInsert">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="division_code" Type="System.String" DbType="NVarChar(55)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspDivisionRemoveMember" Method="uspDivisionRemoveMember">
+    <Parameter Name="adminId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspDivisionUpdate" Method="uspDivisionUpdate">
+    <Parameter Name="division_Id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="division_name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="division_code" Type="System.String" DbType="NVarChar(55)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspDivisionUpdateAdminDivisionId" Method="uspDivisionUpdateAdminDivisionId">
+    <Parameter Name="adminIds" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="division_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspDivisionGetById" Method="uspDivisionGetById">
+    <Parameter Name="division_Id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspDivisionGetByIdResult">
+      <Column Name="Division_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Division_name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Division_code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspDivisionGetList" Method="uspDivisionGetList">
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspDivisionGetListResult">
+      <Column Name="Division_id" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Division_name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="division_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

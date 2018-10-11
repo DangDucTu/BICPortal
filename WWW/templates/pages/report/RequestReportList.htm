@@ -1,0 +1,69 @@
+﻿{#foreach $T.Items as lstReportList}
+<tr class="{COMMON.getRowStyle($T.lstReportList$index + 1)}">
+    <td style="text-align: center">
+        {$T.lstReportList$index + 1}
+    </td>
+    <td style="text-align: center">
+        BICC_REQUEST_{$T.lstReportList.REQUEST_ID}
+    </td>
+    <td style="text-align: center" id="report{$T.lstReportList.REQUEST_ID}">
+        {$T.lstReportList.REQUEST_NAME}
+    </td>
+    <td style="text-align: left">
+        <a href="mailto:{$T.lstReportList.CLIENT_EMAIL}" style="color: Blue; text-decoration: underline;">{$T.lstReportList.CLIENT_EMAIL}</a>
+    </td>
+    <td  style="text-align: center">
+        {$T.lstReportList.CLIENT_DIVISION}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.ACCOUNT}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.DEPARTMENT}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.REQUEST_TYPE}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstReportList.RECEIVED_DATE==null}
+        &nbsp;
+        {#else}
+        {COMMON.jSonDateToString($T.lstReportList.RECEIVED_DATE, 8)}
+        {#/if}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.STATUS}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.DELIVERED_DATE}
+    </td>
+    <td style="text-align: left">
+        {$T.lstReportList.SENDING_TYPE}
+    </td>
+    <td style="color:Red;font-weight:bold">
+        {$T.lstReportList.REPORT_CODE}
+    </td>
+    <td>
+        <a class="aContextFunction" href="javascript:void(0)">Function</a>
+        <div class="divContextFunction">
+            <ul>
+                <li>
+                    <a href="javascript:void(0)" onclick="page_ReportList.functionOnItem(2,{$T.lstReportList.REQUEST_ID})">
+                        Edit
+                    </a>
+                </li>
+                <!--<li>
+                    <a href="javascript:void(0)" onclick="page_ReportList.functionOnItem(4,{$T.lstReportList.REQUEST_ID})">
+                        Upload Email
+                    </a>
+                </li>-->
+                <li>
+                    <a href="javascript:void(0)" onclick="page_ReportList.functionOnItem(3,{$T.lstReportList.REQUEST_ID})">
+                        View
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </td>
+</tr>
+{#/for}

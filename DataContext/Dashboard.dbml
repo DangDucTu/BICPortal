@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DASHBOARD.GENERAL" Class="DashboardDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.36.76.12;Initial Catalog=DASHBOARD.GENERAL;Persist Security Info=True;User ID=sa" SettingsObjectName="DataContext.Properties.Settings" SettingsPropertyName="DASHBOARD_GENERALConnectionString4" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspCeoProductivityChart" Method="uspCeoProductivityChart">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="segment" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="product" Type="System.String" DbType="VarChar(200)" />
+    <ElementType Name="uspCeoProductivityChartResult">
+      <Column Name="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="month" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="segment" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="product" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="value" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoSummary" Method="uspCeoSummary">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="title" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspCeoSummaryResult">
+      <Column Name="loan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="deposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="icon_loan" Type="System.String" DbType="VarChar(27) NOT NULL" CanBeNull="false" />
+      <Column Name="icon_deposit" Type="System.String" DbType="VarChar(27) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoSpeedometer" Method="uspCeoSpeedometer">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="product" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="uspCeoSpeedometerResult">
+      <Column Name="min_year" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="max_year" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="min_month" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="max_month" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="current_value" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="growth_target" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoSpeedometerGetOtherInfo" Method="uspCeoSpeedometerGetOtherInfo">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="uspCeoSpeedometerGetOtherInfoResult">
+      <Column Name="max_month" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="current_value" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="growth_target" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoProductivityTable" Method="uspCeoProductivityTable">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="uspCeoProductivityTableResult">
+      <Column Name="month" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="product" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="retail" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="sme" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoPerformance" Method="uspCeoPerformance">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="table" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspCeoPerformanceResult">
+      <Column Name="eop_balance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="month_end_target" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="year_end_target" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="growth_target" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="eop_balance_1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="eop_balance_yoy" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoProductivityRetail" Method="uspCeoProductivityRetail">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="uspCeoProductivityRetailResult">
+      <Column Name="product" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="branch_psedep" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="branch_pseloan" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="branch_pb" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ac_cl" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ac_wb" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ac_ap" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoProductivitySme" Method="uspCeoProductivitySme">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="loaibigloan" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspCeoProductivitySmeResult">
+      <Column Name="product" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="sbo" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="mbo" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoGetDate" Method="uspCeoGetDate">
+    <ElementType Name="uspCeoGetDateResult">
+      <Column Name="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspProductivityRetailMonthlySnapshot" Method="uspProductivityRetailMonthlySnapshot">
+    <Parameter Name="app" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspProductivityRetailMonthlySnapshotResult">
+      <Column Name="MONTH" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspProductivityRetailMonthlyBranchVsAC" Method="uspProductivityRetailMonthlyBranchVsAC">
+    <Parameter Name="productName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="channel" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="uspProductivityRetailMonthlyBranchVsACResult">
+      <Column Name="Month" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspProductivityRetailMonthlyActualTableCurrent" Method="uspProductivityRetailMonthlyActualTableCurrent">
+    <ElementType Name="uspProductivityRetailMonthlyActualTableCurrentResult">
+      <Column Name="product" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="branch_psedep" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="branch_pseloan" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="branch_pb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ac_cl" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ac_wb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ac_ap" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspProductivityRetailMonthlyActualTablePrevious" Method="uspProductivityRetailMonthlyActualTablePrevious">
+    <ElementType Name="uspProductivityRetailMonthlyActualTablePreviousResult">
+      <Column Name="product" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="branch_psedep" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="branch_pseloan" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="branch_pb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ac_cl" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ac_wb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ac_ap" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTrackingMonthlyRetailCustomers" Method="uspTrackingMonthlyRetailCustomers">
+    <Parameter Name="month" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTrackingMonthlyRetailCustomersResult">
+      <Column Name="Indicator" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Securities" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Unsecured" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Auto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Home" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HomeEquity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Passbook" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CurrentAccount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TermDeposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Others" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MasterDebit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MasterCredit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Ebanking" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTrackingGetMonth" Method="uspTrackingGetMonth">
+    <ElementType Name="uspTrackingGetMonthResult">
+      <Column Name="MONTH" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailByProduct" Method="uspTATDailyRetailByProduct">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="uspTATDailyRetailByProductResult">
+      <Column Name="ProductName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Step" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeLength" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailAgingAppsColumnChart" Method="uspTATDailyRetailAgingAppsColumnChart">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTATDailyRetailAgingAppsColumnChartResult">
+      <Column Name="Step" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailAgingAvgTATSinceCreatedColumnChart" Method="uspTATDailyRetailAgingAvgTATSinceCreatedColumnChart">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTATDailyRetailAgingAvgTATSinceCreatedColumnChartResult">
+      <Column Name="Step" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailAppsStatusPieChart" Method="uspTATDailyRetailAppsStatusPieChart">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTATDailyRetailAppsStatusPieChartResult">
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailNetGrossApprovedAppsColumnChart" Method="uspTATDailyRetailNetGrossApprovedAppsColumnChart">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTATDailyRetailNetGrossApprovedAppsColumnChartResult">
+      <Column Name="Item" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Total_In_Month" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATRetailCompareChannel" Method="uspTATRetailCompareChannel">
+    <Parameter Name="productname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="uspTATRetailCompareChannelResult">
+      <Column Name="CHANNEL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STEP" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TIMELENGTH" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailNetGrossApprovedAppsTable" Method="uspTATDailyRetailNetGrossApprovedAppsTable">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTATDailyRetailNetGrossApprovedAppsTableResult">
+      <Column Name="Item" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="In_Month" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Not_In_Month" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Total_In_Month" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailAppsStatusTable" Method="uspTATDailyRetailAppsStatusTable">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTATDailyRetailAppsStatusTableResult">
+      <Column Name="Item" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="InMonth" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BeforeMonth" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TotalInMonth" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailTATTarget" Method="uspTATDailyRetailTATTarget">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="uspTATDailyRetailTATTargetResult">
+      <Column Name="ProductName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Actual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Target" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Difference" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailSnapshotChart" Method="uspTATDailyRetailSnapshotChart">
+    <ElementType Name="uspTATDailyRetailSnapshotChartResult">
+      <Column Name="Month" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="chart" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDailyRetailSnapshot" Method="uspTATDailyRetailSnapshot">
+    <Parameter Name="currentdt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="item" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspTATDailyRetailSnapshotResult">
+      <Column Name="item" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="currentdate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="compare" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="icon" Type="System.String" DbType="VarChar(27)" CanBeNull="true" />
+      <Column Name="[percent]" Member="percent" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoTime" Method="uspCeoTime">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="uspCeoTimeResult">
+      <Column Name="elapsed_time" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="target" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="product_month" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATGetLastDate" Method="uspTATGetLastDate">
+    <ElementType Name="uspTATGetLastDateResult">
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTrackingGetLastDate" Method="uspTrackingGetLastDate">
+    <ElementType Name="uspTrackingGetLastDateResult">
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTrackingDailyRetailParameterFTD" Method="uspTrackingDailyRetailParameterFTD">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTrackingDailyRetailParameterFTDResult">
+      <Column Name="Total1" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Total3" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Total2" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Securities" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Business" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Unsecured" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Auto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Consumption" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Home" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Passbook" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CurrentAccount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TermDeposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Others" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LocalDebit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MasterCredit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CreditCard" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTrackingDailyRetailParameterMTD" Method="uspTrackingDailyRetailParameterMTD">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="channel" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTrackingDailyRetailParameterMTDResult">
+      <Column Name="Total1" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Total3" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Total2" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Securities" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Business" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Unsecured" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Auto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Consumption" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Home" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Passbook" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CurrentAccount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TermDeposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Others" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LocalDebit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MasterCredit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CreditCard" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTrackingWeeklySMEParameterGetDate" Method="uspTrackingWeeklySMEParameterGetDate">
+    <ElementType Name="uspTrackingWeeklySMEParameterGetDateResult">
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTrackingWeeklySMEParameter" Method="uspTrackingWeeklySMEParameter">
+    <Parameter Name="dt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="branch" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="uspTrackingWeeklySMEParameterResult">
+      <Column Name="Total1" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Total2" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Total3" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Others" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CurrentAccount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ShortTerm" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MediumAndLongTerm" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DepositCard" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CreditCard" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OverDraff" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TermDeposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTrackingWeeklySMEParameterGetBranch" Method="uspTrackingWeeklySMEParameterGetBranch">
+    <Parameter Name="region" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="uspTrackingWeeklySMEParameterGetBranchResult">
+      <Column Name="Branch" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoRetail" Method="uspCeoRetail">
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="uspCeoRetailResult">
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="channel" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date_text" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspCeoSme" Method="uspCeoSme">
+    <Parameter Name="date" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="uspCeoSmeResult">
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="date_text" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATApplication" Method="uspTATApplication">
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspTATApplicationResult">
+      <Column Name="Channel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[4]" Member="_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[3]" Member="_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2]" Member="_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[1]" Member="_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATApplicationGetChart" Method="uspTATApplicationGetChart">
+    <ElementType Name="uspTATApplicationGetChartResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Channel" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATByVpb" Method="uspTATByVpb">
+    <Parameter Name="product" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTATByVpbResult">
+      <Column Name="Date" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATComment" Method="uspTATComment">
+    <ElementType Name="uspTATCommentResult">
+      <Column Name="Arg" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Product" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATByStage" Method="uspTATByStage">
+    <Parameter Name="product" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspTATByStageResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Product" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="T" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATSla" Method="uspTATSla">
+    <ElementType Name="uspTATSlaResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Product" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Target1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sla1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Target2" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sla2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Target3" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sla3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATApplicationByProduct" Method="uspTATApplicationByProduct">
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspTATApplicationByProductResult">
+      <Column Name="Channel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[4]" Member="_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[3]" Member="_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2]" Member="_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[1]" Member="_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATApplicationByProductGetChart" Method="uspTATApplicationByProductGetChart">
+    <ElementType Name="uspTATApplicationByProductGetChartResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Channel" Type="System.String" DbType="VarChar(23)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATDate" Method="uspTATDate">
+    <ElementType Name="uspTATDateResult">
+      <Column Name="Date" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Week" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATApplicationGetChartErs" Method="uspTATApplicationGetChartErs">
+    <ElementType Name="uspTATApplicationGetChartErsResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Channel" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATApplicationErs" Method="uspTATApplicationErs">
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspTATApplicationErsResult">
+      <Column Name="Channel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[4]" Member="_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[3]" Member="_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2]" Member="_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[1]" Member="_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATApplicationByProductGetChartErs" Method="uspTATApplicationByProductGetChartErs">
+    <ElementType Name="uspTATApplicationByProductGetChartErsResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Channel" Type="System.String" DbType="VarChar(23)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTATApplicationByProductErs" Method="uspTATApplicationByProductErs">
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspTATApplicationByProductErsResult">
+      <Column Name="Channel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[4]" Member="_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[3]" Member="_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2]" Member="_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[1]" Member="_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspIncentiveCurrentMonth" Method="uspIncentiveCurrentMonth">
+    <ElementType Name="uspIncentiveCurrentMonthResult">
+      <Column Name="PRODUCT" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="YTD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Jan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Feb" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Mar" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Apr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="May" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Jun" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Jul" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Aug" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Sep" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Oct" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Nov" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Dec" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspIncentiveByBusiness" Method="uspIncentiveByBusiness">
+    <ElementType Name="uspIncentiveByBusinessResult">
+      <Column Name="PRODUCT" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="PARAMETER" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspIncentiveByPosition" Method="uspIncentiveByPosition">
+    <Parameter Name="product" Type="System.String" DbType="VarChar(1)" />
+    <ElementType Name="uspIncentiveByPositionResult">
+      <Column Name="PARAMETER" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspIncentiveRetail" Method="uspIncentiveRetail">
+    <Parameter Name="month" Type="System.String" DbType="VarChar(4)" />
+    <ElementType Name="uspIncentiveRetailResult">
+      <Column Name="PRODUCT" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspIncentiveSme" Method="uspIncentiveSme">
+    <Parameter Name="month" Type="System.String" DbType="VarChar(4)" />
+    <ElementType Name="uspIncentiveSmeResult">
+      <Column Name="PRODUCT" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspTransformationMetricsSales" Method="uspTransformationMetricsSales">
+    <ElementType Name="uspTransformationMetricsSalesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MONTH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DIVISION" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="AMOUNT" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="SERIES" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspKeyIndicatorUpdate" Method="uspKeyIndicatorUpdate">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="indicator" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="unit" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="t1" Type="System.Double" DbType="Float" />
+    <Parameter Name="t2" Type="System.Double" DbType="Float" />
+    <Parameter Name="t3" Type="System.Double" DbType="Float" />
+    <Parameter Name="t4" Type="System.Double" DbType="Float" />
+    <Parameter Name="t5" Type="System.Double" DbType="Float" />
+    <Parameter Name="t6" Type="System.Double" DbType="Float" />
+    <Parameter Name="t7" Type="System.Double" DbType="Float" />
+    <Parameter Name="t8" Type="System.Double" DbType="Float" />
+    <Parameter Name="t9" Type="System.Double" DbType="Float" />
+    <Parameter Name="t10" Type="System.Double" DbType="Float" />
+    <Parameter Name="t11" Type="System.Double" DbType="Float" />
+    <Parameter Name="t12" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspKeyIndicatorGetInfo" Method="uspKeyIndicatorGetInfo">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspKeyIndicatorGetInfoResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Indicator" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="T1" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T2" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T3" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T4" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T5" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T6" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T7" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T8" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T9" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T10" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T11" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T12" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PIC" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspRetailBomTarget" Method="uspRetailBomTarget">
+    <Parameter Name="channel" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspRetailBomTargetResult">
+      <Column Name="PARAMETER" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Jan" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Feb" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Mar" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Apr" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="May" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Jun" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Jul" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Aug" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Sep" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Oct" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Nov" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Dec" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspRetailBomActual" Method="uspRetailBomActual">
+    <Parameter Name="channel" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspRetailBomActualResult">
+      <Column Name="PARAMETER" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CHANNEL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Jan" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Feb" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Mar" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Apr" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="May" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Jun" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Jul" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Aug" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Sep" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Oct" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Nov" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Dec" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSmeIncentiveByMonth" Method="uspSmeIncentiveByMonth">
+    <Parameter Name="year" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspSmeIncentiveByMonthResult">
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Jan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Feb" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Apr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="May" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Jun" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Jul" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Aug" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Oct" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nov" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dec" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSmeIncentivePayout" Method="uspSmeIncentivePayout">
+    <Parameter Name="year" Type="System.Int32" DbType="Int" />
+    <Parameter Name="month" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspSmeIncentivePayoutResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Month" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Parameter" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[By]" Member="By" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSmeIncentiveTopSaleman" Method="uspSmeIncentiveTopSaleman">
+    <Parameter Name="year" Type="System.Int32" DbType="Int" />
+    <Parameter Name="month" Type="System.Int32" DbType="Int" />
+    <Parameter Name="by" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="uspSmeIncentiveTopSalemanResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Month" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Salesman" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Branch" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Zone" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PointIncentive" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[By]" Member="By" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSmeIncentiveContribution" Method="uspSmeIncentiveContribution">
+    <Parameter Name="year" Type="System.Int32" DbType="Int" />
+    <Parameter Name="month" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspSmeIncentiveContributionResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Month" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Parameter" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSmeIncentiveOverview" Method="uspSmeIncentiveOverview">
+    <Parameter Name="year" Type="System.Int32" DbType="Int" />
+    <Parameter Name="month" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspSmeIncentiveOverviewResult">
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Month" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="YTMIncentive" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Incentive" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Salesman" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="EligibleSalesman" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspKeyIndicator" Method="uspKeyIndicator">
+    <Parameter Name="pic" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="year" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspKeyIndicatorResult">
+      <Column Name="RowNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Indicator" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="T1" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T2" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T3" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T4" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T5" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T6" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T7" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T8" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T9" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T10" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T11" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="T12" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PIC" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Deadline" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

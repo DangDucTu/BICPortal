@@ -1,0 +1,13 @@
+﻿{#foreach $T as lstProductivitySme}
+<tr class="weekly-ceo-sme-{$T.lstProductivitySme$index}">
+    <td style="text-align: left" class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivitySme.product)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivitySme.product)}
+    </td>
+    <td class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivitySme.sbo)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivitySme.sbo)}
+    </td>
+    <td class="{pages_WeeklyCeoDashboard.addClassProductivityRetail($T.lstProductivitySme.mbo)}">
+        {pages_WeeklyCeoDashboard.getValueProductivityRetail($T.lstProductivitySme.mbo)}
+    </td>    
+</tr>
+{#/for}

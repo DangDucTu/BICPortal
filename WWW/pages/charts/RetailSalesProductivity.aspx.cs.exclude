@@ -1,0 +1,278 @@
+﻿using DevExpress.XtraCharts;
+using DevExpress.XtraCharts.Web;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using WorkFlowBLL;
+
+public partial class pages_charts_RetailSalesProductivity : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            GetChartBranchProductivity();
+            GetChartACProductivity();
+            GetChartProductivityByProduct();
+            GetChartTop20BestPerformers();
+        }
+    }
+
+    public void GetChartTitle(WebChartControl chartId, string title, ChartTitleDockStyle titleDock, bool antialiasing,
+        string fontName, int fontSize, FontStyle fontStyle, Color color, int indent)
+    {
+        ChartTitle chartTitle1 = new ChartTitle();
+        chartTitle1.Text = title;
+
+        chartTitle1.Dock = titleDock;
+
+        // Customize a title's appearance.
+        chartTitle1.Antialiasing = antialiasing;
+        chartTitle1.Font = new Font(fontName, fontSize, fontStyle);
+        chartTitle1.TextColor = color;
+        chartTitle1.Indent = indent;
+
+        chartId.Titles.Clear();
+        chartId.Titles.Add(chartTitle1);
+    }
+
+    private void GetChartBranchProductivity()
+    {
+        
+        var obj = Dashboard.Instance.RetailBranchProductivity();
+
+        Series serie1 = new Series("Branch", ViewType.Bar);
+        serie1.DataSource = obj;
+        serie1.ArgumentDataMember = "MONTH";
+        serie1.ValueDataMembers[0] = "AMOUNT";
+        serie1.ArgumentScaleType = ScaleType.Auto;
+        serie1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+        WebChartControl1.Series.Add(serie1);
+
+        GetChartTitle(WebChartControl1, "Retail Productivity",
+            ChartTitleDockStyle.Top, true, "Arial", 12, FontStyle.Bold, Color.Green, 10);
+
+        WebChartControl1.Legend.Visible = false;
+
+        //foreach (Series series in WebChartControl1.Series)
+        //{
+        //    PointSeriesView view = (PointSeriesView)series.View;
+        //    view.PointMarkerOptions.Kind = MarkerKind.Square;
+        //}
+    }
+
+    private void GetChartACProductivity()
+    {
+        string productName = ddlProductName.SelectedValue;
+        //string criteria = ddlCriteria.SelectedValue;
+        var obj = Dashboard.Instance.RetailACProductivity(productName);
+
+        Series serie1 = new Series("AC", ViewType.Line);
+        serie1.DataSource = obj;
+        serie1.ArgumentDataMember = "MONTH";
+        serie1.ValueDataMembers[0] = "AMOUNT";
+        serie1.ArgumentScaleType = ScaleType.Auto;
+        serie1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+        //DEMO LINE 2
+        List<Productivity> lstProductivity = new List<Productivity>();
+        lstProductivity.Add(new Productivity("Jan", 80));
+        lstProductivity.Add(new Productivity("Feb", 70));
+        lstProductivity.Add(new Productivity("Mar", 140));
+        lstProductivity.Add(new Productivity("Apr", 80));
+        lstProductivity.Add(new Productivity("May", 50));
+
+        Series serie2 = new Series("Branch", ViewType.Line);
+        serie2.DataSource = lstProductivity;
+        serie2.ArgumentDataMember = "MONTH";
+        serie2.ValueDataMembers[0] = "AMOUNT";
+        serie2.ArgumentScaleType = ScaleType.Auto;
+        serie2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+        WebChartControl2.Series.Clear();
+        WebChartControl2.Series.AddRange(new Series[] { serie1, serie2 });
+
+        GetChartTitle(WebChartControl2, "AC vs. Branch Productivity",
+            ChartTitleDockStyle.Top, true, "Arial", 12, FontStyle.Bold, Color.Green, 10);
+
+        Legend legend = WebChartControl2.Legend;
+
+        // Display the chart control's legend.
+        legend.Visible = true;
+
+        // Define its margins and alignment relative to the diagram.
+        legend.Margins.Bottom = 5;
+        legend.AlignmentHorizontal = LegendAlignmentHorizontal.Center;
+        legend.AlignmentVertical = LegendAlignmentVertical.TopOutside;
+        legend.Direction = LegendDirection.LeftToRight;
+        legend.Border.Visible = false;
+
+        foreach (Series series in WebChartControl2.Series)
+        {
+            LineSeriesView view = (LineSeriesView)series.View;
+            view.PointMarkerOptions.Kind = MarkerKind.Square;
+        }
+    }
+
+    public class Productivity
+    {
+        public string MONTH { get; set; }
+        public int AMOUNT { get; set; }
+
+        public Productivity(string _month, int _amount)
+        {
+            MONTH = _month;
+            AMOUNT = _amount;
+        }
+    }
+
+    protected void ddlRegion_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GetChartBranchProductivity();
+        GetChartACProductivity();
+        GetChartProductivityByProduct();
+        GetChartTop20BestPerformers();
+    }
+
+    protected void ddlProductName_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GetChartBranchProductivity();
+        GetChartACProductivity();
+        GetChartProductivityByProduct();
+        GetChartTop20BestPerformers();
+    }
+
+    protected void GetChartProductivityByProduct()
+    {
+        string region = ddlRegion1.SelectedValue;
+        int month = Convert.ToInt32(ddlMonth1.SelectedValue);
+        var obj = Dashboard.Instance.ProductivityByProduct(month, region);
+
+        Series serie1 = new Series("Product", ViewType.Bar);
+        serie1.DataSource = obj;
+        serie1.ArgumentDataMember = "PRODUCT";        
+        serie1.ValueDataMembers[0] = "AMOUNT";
+        
+        serie1.ArgumentScaleType = ScaleType.Auto;
+
+        //PiePointOptions PointOptions = (PiePointOptions)serie1.Label.PointOptions;
+        //PointOptions.PercentOptions.ValueAsPercent = true;
+        //PointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
+        //PointOptions.ValueNumericOptions.Precision = 0;
+
+        serie1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+        WebChartControl3.Series.Clear();
+        WebChartControl3.Series.Add(serie1);
+
+        //GetChartTitle(WebChartControl3, "Product Efficiency",
+        //    ChartTitleDockStyle.Top, true, "Arial", 12, FontStyle.Bold, Color.Green, 10);
+
+        //serie1.PointOptions.PointView = PointView.ArgumentAndValues; //this is code that you want
+        ////if you only legend box change
+        //serie1.LegendPointOptions.PointView = PointView.ArgumentAndValues;
+
+        WebChartControl3.Legend.Visible = false;
+
+
+        // Access the type-specific options of the diagram.
+        XYDiagram myDiagram = (XYDiagram)WebChartControl3.Diagram;
+
+        myDiagram.AxisX.Interlaced = true;
+        myDiagram.AxisX.GridSpacing = 10;
+        myDiagram.AxisX.Label.Angle = -20;
+    }
+
+    protected void ddlRegion1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GetChartBranchProductivity();
+        GetChartACProductivity();
+        GetChartProductivityByProduct();
+        GetChartTop20BestPerformers();
+    }
+
+    protected void ddlMonth1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GetChartBranchProductivity();
+        GetChartACProductivity();
+        GetChartProductivityByProduct();
+        GetChartTop20BestPerformers();
+    }
+    protected void WebChartControl1_CustomDrawSeries(object sender, CustomDrawSeriesEventArgs e)
+    {
+        // Find all Bar Series by their view type,
+        // and fill them with Aqua color.
+        if (e.Series.View is LineSeriesView)
+            e.SeriesDrawOptions.Color = Color.Green;
+    }
+
+    //protected void ddlCriteria_SelectedIndexChanged(object sender, EventArgs e)
+    //{
+    //    GetChartBranchProductivity();
+    //    GetChartACProductivity();
+    //    GetChartProductivityByProduct();
+    //    GetChartTop20BestPerformers();
+    //}
+
+    protected void GetChartTop20BestPerformers()
+    {
+        Series serie1 = new Series("20% staff", ViewType.StackedBar);
+
+        var obj = Dashboard.Instance.Top20BestPerformers("Total_Disbursement");
+        serie1.DataSource = obj;
+        serie1.ArgumentDataMember = "NAME";
+        serie1.ValueDataMembers[0] = "AMOUNT";
+        serie1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;        
+
+        //WebChartControl4.Series.Add(serie1);
+
+        GetChartTitle(WebChartControl4, " In terms of % Disbursement",
+            ChartTitleDockStyle.Top, true, "Arial", 12, FontStyle.Bold, Color.Green, 10);
+
+
+
+        Series serie2 = new Series("80% staff", ViewType.StackedBar);
+
+        obj = Dashboard.Instance.Top20BestPerformers("Top 20");
+        serie2.DataSource = obj;
+        serie2.ArgumentDataMember = "NAME";
+        serie2.ValueDataMembers[0] = "AMOUNT";
+        serie2.ArgumentScaleType = ScaleType.Auto;
+        serie2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+        WebChartControl4.Series.Clear();
+        WebChartControl4.Series.AddRange(new Series[] { serie1, serie2 });
+
+        Legend legend = WebChartControl4.Legend;
+
+        // Display the chart control's legend.
+        legend.Visible = true;
+
+        // Define its margins and alignment relative to the diagram.        
+        legend.AlignmentHorizontal = LegendAlignmentHorizontal.Center;
+        legend.AlignmentVertical = LegendAlignmentVertical.BottomOutside;
+        legend.Direction = LegendDirection.LeftToRight;
+        legend.Border.Visible = false;
+    }
+
+    protected void ASPxGridView2_CustomColumnDisplayText(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewColumnDisplayTextEventArgs e)
+    {
+        if (e.Column.FieldName == "PERCENT")
+        {
+            e.DisplayText = new HtmlString((string)e.GetFieldValue("PERCENT")).ToHtmlString();
+        }
+    }
+
+    protected void WebChartControl2_CustomDrawSeries(object sender, CustomDrawSeriesEventArgs e)
+    {
+        // Find all Bar Series by their view type,
+        // and fill them with Aqua color.
+        if (e.Series.View is BarSeriesView)
+            e.SeriesDrawOptions.Color = Color.FromArgb(1,160,80);
+    }
+}

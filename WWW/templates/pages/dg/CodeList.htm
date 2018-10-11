@@ -1,0 +1,53 @@
+﻿{#foreach $T.Items as lstReportList}
+<tr class="{COMMON.getRowStyle($T.lstReportList$index + 1)}">
+    <td style="text-align: center">
+        {$T.lstReportList.RN}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.CODE}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.NAME}
+    </td>
+    <td id="Frequency{$T.lstReportList.ReportListId}" style="text-align: center">        
+        {#if $T.lstReportList.FIELD_NAME==null}
+        &nbsp;
+        {#else}
+        {$T.lstReportList.FIELD_NAME}
+        {#/if}      
+    </td>
+    <td id="ReportName{$T.lstReportList.ReportListId}" style="text-align: left">
+        {#if $T.lstReportList.TYPE_NAME==null}
+        &nbsp;
+        {#else}
+        {$T.lstReportList.TYPE_NAME}
+        {#/if}
+    </td>    
+    <td style="text-align: center">
+        {$T.lstReportList.SEGMENT}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstReportList.EFFECTIVE_DATE==null}
+        &nbsp;
+        {#else}
+        {COMMON.jSonDateToString($T.lstReportList.EFFECTIVE_DATE, 8)}
+        {#/if}
+    </td>    
+    <td style="text-align: center">
+        {$T.lstReportList.REQUESTER}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.STATUS}
+    </td>
+    <td>
+        <a class="aContextFunction" href="javascript:void(0)">Function</a>
+        <div class="divContextFunction">
+            <ul>
+                
+                    <li><a href="javascript:void(0)" onclick="page_CodeList.functionOnItem(2,{$T.lstReportList.CODE_ID})">
+                    Edit</a></li>    
+            </ul>
+        </div>
+    </td>
+</tr>
+{#/for}

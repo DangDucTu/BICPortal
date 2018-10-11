@@ -1,0 +1,13 @@
+﻿{#foreach $T as lstReportList}
+<tr class="{COMMON.getRowStyle($T.lstReportList$index + 1)}">
+    <td style="text-align: center">
+        <a href="/dg-code-list?field={$T.lstReportList.FIELD_ID}">{$T.lstReportList.FIELD}</a>
+    </td>
+    <td style="text-align: center">
+        <a href="/dg-code-list?field={$T.lstReportList.FIELD_ID}&type={$T.lstReportList.TYPE_ID}">{$T.lstReportList.TYPE}</a>
+</td>
+    <td style="text-align: center">
+        {$T.lstReportList.NO_CODE}
+    </td>
+</tr>
+{#/for}

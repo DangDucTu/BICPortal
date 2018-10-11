@@ -1,0 +1,16 @@
+﻿{#foreach $T as lstNumberOfApplication}
+<tr class="{COMMON.getRowStyle($T.lstNumberOfApplication$index + 1)}">
+    <td style="text-align: left">
+        {$T.lstNumberOfApplication.Item}
+    </td>
+    <td style="text-align: right">
+        {($T.lstNumberOfApplication.In_Month*100).format(2, 3, '.', ',')}%
+    </td>
+    <td style="text-align: right">
+        {($T.lstNumberOfApplication.Not_In_Month*100).format(2, 3, '.', ',')}%
+    </td>
+    <td style="text-align: right">
+        {($T.lstNumberOfApplication.Total_In_Month*100).format(2, 3, '.', ',')}%
+    </td>    
+</tr>
+{#/for}

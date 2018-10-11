@@ -1,0 +1,16 @@
+﻿{#foreach $T as lstRetailBom}
+    <tr>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Jan)}">{$T.lstRetailBom.Jan.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Feb)}">{$T.lstRetailBom.Feb.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Mar)}">{$T.lstRetailBom.Mar.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Apr)}">{$T.lstRetailBom.Apr.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.May)}">{$T.lstRetailBom.May.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Jun)}">{$T.lstRetailBom.Jun.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Jul)}">{$T.lstRetailBom.Jul.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Aug)}">{$T.lstRetailBom.Aug.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Sep)}">{$T.lstRetailBom.Sep.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Oct)}">{$T.lstRetailBom.Oct.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Nov)}">{$T.lstRetailBom.Nov.format(0, 3, ',', '.')}%</td>
+        <td class="{page_RetailBom.getClassTarget($T.lstRetailBom.Dec)}">{$T.lstRetailBom.Dec.format(0, 3, ',', '.')}%</td>
+    </tr>
+{#/for}

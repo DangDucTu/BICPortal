@@ -1,0 +1,49 @@
+﻿<div id="divPopupBg" class="_divPopup_bg">
+</div>
+<div id="divPopupChooseRole" class="_divPopup_border _divPopup_wrapperMain" style="width: 410px;">
+    <div class="_divPopup_wrapper">
+        <div style="height: 30px;" class="barpopup">
+            <div style="float: left;" class="titlepopup">
+                Chọn tài khoản
+            </div>
+            <div style="float: right;" class="popupclosebutton" title="Đóng">&nbsp;</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content_popup">
+            <div class="form">
+                <table class="table" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th style="width: 30px">
+                                <input type="checkbox" class="checkallRole"/>
+                            </th>
+                            <th>
+                                Tên nhóm
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbdRoleList">
+                        {#foreach $T as role}
+                        <tr>
+                            <td class="selected">
+                                <input type="checkbox" class="cbRecord" id="id{$T.role.RoleId}" />
+                            </td>
+                            <td class="last" style="text-align: left;">
+                                {$T.role.Name}
+                            </td>
+                        </tr>
+                        {#/for}
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+        <div class="bottom-popup">
+            <ul class="buttonPopup nr">
+                <li><input type="button" value="Cập nhật" id="popup_save"/></li>
+                <li><input type="button" value="Đóng" id="popup_cancel"/></li>
+            </ul>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</div>

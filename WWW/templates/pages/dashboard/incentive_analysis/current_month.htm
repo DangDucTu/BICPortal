@@ -1,0 +1,43 @@
+﻿{#foreach $T as lstCurrentMonth}
+    <tr class="current-month-{$T.lstCurrentMonth$index}">
+        <td>
+            {$T.lstCurrentMonth.YTD.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Jan.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Feb.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Mar.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Apr.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.May.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Jun.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Jul.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Aug.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Sep.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Oct.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Nov.format(0,3,0,0)}
+        </td>
+        <td>
+            {$T.lstCurrentMonth.Dec.format(0,3,0,0)}
+        </td>
+    </tr>
+{#/for}

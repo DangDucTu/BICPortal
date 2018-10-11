@@ -1,0 +1,43 @@
+﻿<table class="table" width="100%" style="border: 1px solid #99BBE8">
+    <thead>
+        <tr>
+            <th style="width: 40px">
+                STT
+            </th>
+            <th>
+                Group Name
+            </th>
+            <th style="width: 120px">
+                Total user
+            </th>
+            <th style="width: 80px">
+                Status
+            </th>
+            <th  style="width: 155px">
+                Choose Function
+            </th>
+        </tr>
+    </thead>
+    <tbody id="tbRoleList">
+        {#foreach $T as role}
+        <tr class="{COMMON.getRowStyle($T.role$index + 1)}">
+            <td id="Stt">
+                
+            </td>
+            <td>
+               <a href="/pages/RoleInfo.aspx?Id={$T.role.RoleId}" title="View info group function">{$T.role.Name}</a>
+            </td>
+            <td >
+                {$T.role.TotalUser}
+            </td>
+            <td >
+                {#if $T.role.Status==1} Active {#else} Locked {#/if}
+            </td>
+            <td>
+                <a title="Delete group function" href="javascript:Pages_SystemAdminInfo.DeleteRole({$T.role.RoleId});">Delete</a>
+            </td>
+
+        </tr>
+        {#/for}
+    </tbody>
+</table>

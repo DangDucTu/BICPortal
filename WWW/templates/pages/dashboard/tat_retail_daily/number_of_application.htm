@@ -1,0 +1,16 @@
+﻿{#foreach $T as lstNumberOfApplication}
+<tr class="{COMMON.getRowStyle($T.lstNumberOfApplication$index + 1)}">
+    <td style="text-align: left">
+        {$T.lstNumberOfApplication.Item}
+    </td>
+    <td style="text-align: right">
+        {$T.lstNumberOfApplication.InMonth}
+    </td>
+    <td style="text-align: right">
+        {$T.lstNumberOfApplication.BeforeMonth}
+    </td>
+    <td style="text-align: right">
+        {$T.lstNumberOfApplication.TotalInMonth}
+    </td>    
+</tr>
+{#/for}

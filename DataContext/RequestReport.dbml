@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VPBReportBackup20170724" Class="RequestReportDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=VPBReportBackup20170724;User ID=sa" SettingsObjectName="DataContext.Properties.Settings" SettingsPropertyName="VPBReportBackup20170724ConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspRequestReportListInsert" Method="uspRequestReportListInsert">
+    <Parameter Name="requestName" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="client" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="emailClient" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="requestType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="receive" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="requestStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="deadline" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="account" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="requestSendType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="reportType" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="requestDescription" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="frequency" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="noTracerReceived" Type="System.Int32" DbType="Int" />
+    <Parameter Name="noTracerResolved" Type="System.Int32" DbType="Int" />
+    <Parameter Name="requestReasonCan" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="requestDiscussMan" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="requestInformClient" Type="System.String" DbType="NVarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspRequestReportListGetList" Method="uspRequestReportListGetList">
+    <Parameter Name="requestName" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="receiveFrom" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="receiveTo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="department" Type="System.Int32" DbType="Int" />
+    <Parameter Name="account" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pic" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="page" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="totalRecord" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="uspRequestReportListGetListResult">
+      <Column Name="RowNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="REQUEST_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CLIENT_EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="REQUEST_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CLIENT_DIVISION" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ACCOUNT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="REQUEST_TYPE" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="RECEIVED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="DELIVERED_DATE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SENDING_TYPE" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="REPORT_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DEPARTMENT" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Decription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspRequestReportListUpdate" Method="uspRequestReportListUpdate">
+    <Parameter Name="reportName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="client" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="emailClient" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="requestType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="receive" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="requestStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="deadline" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="requestSendType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="reportType" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="requestDescription" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="frequency" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="noTracerReceived" Type="System.Int32" DbType="Int" />
+    <Parameter Name="noTracerResolved" Type="System.Int32" DbType="Int" />
+    <Parameter Name="requestReasonCan" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="requestDiscussMan" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="requestInformClient" Type="System.String" DbType="NVarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspRequestReportGetInfoCreateReport" Method="uspRequestReportGetInfoCreateReport">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="accountName" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="uspRequestReportGetInfoCreateReportResult">
+      <Column Name="Request_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Request_Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Received_Date" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Client_Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Client_Division" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Created_Date" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Delivered_Date" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Sending_Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Request_Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Decription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Frequency" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="No_tracer_received" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="No_tracer_solved" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reason_cancel_reject" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Discuss_Man" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Inform_Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspRequestReportGetInfo" Method="uspRequestReportGetInfo">
+    <Parameter Name="reportListId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspRequestReportGetInfoResult">
+      <Column Name="Request_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Request_Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Received_Date" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Client_Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Client_Division" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Created_Date" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Delivered_Date" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Sending_Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Request_Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Decription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Frequency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="No_tracer_received" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="No_tracer_solved" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reason_cancel_reject" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Discuss_Man" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Inform_Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

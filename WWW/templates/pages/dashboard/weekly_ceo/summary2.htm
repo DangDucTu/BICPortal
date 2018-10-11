@@ -1,0 +1,10 @@
+﻿{#foreach $T as lstSummary}
+<tr class="number">
+    <td>
+        {($T.lstSummary.loan*100).format(0, 3, '.', ',')}%
+    </td>
+    <td>
+        {($T.lstSummary.deposit*100).format(0, 3, '.', ',')}%
+    </td>
+</tr>
+{#/for}

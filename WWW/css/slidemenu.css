@@ -1,0 +1,121 @@
+﻿html {
+	font-size: 12px;
+	font-family: tahoma, arial, verdana, Helvetica, sans-serif;
+	color: #5E5E5E;
+	font-family: Arial, Tahoma;
+}
+body {line-height: 18px;}
+a {color: #5e5e5e; text-decoration: none;}
+a:hover {color: #00ADEF;text-decoration: none;}
+/* Navigation multi levels menu */
+.jqueryslidemenu {
+	/*height: 30px;
+	line-height: normal;
+	background-color: #484848;*/
+	background: #777;
+    border-bottom: 2px solid #c0c0c0;
+    height: 30px;
+    line-height: normal;
+}
+.jqueryslidemenu ul
+{
+    position:absolute;
+    margin:0;list-style-type:none;font-size:12px;float:left; /* Fix horizontal scrollbar in ie7 */
+                    
+                    }
+/*Top level list items*/
+.jqueryslidemenu ul li{
+	position: relative;
+	display: inline;
+	float: left;
+	text-transform:uppercase;
+	min-width:90px;
+}
+/*Top level menu link items style*/
+.jqueryslidemenu ul li a{
+	display: block;
+	padding-top: 10px;
+	padding-right: 8px;
+	padding-bottom: 8px;
+	padding-left: 20px;
+	/*color: #D5D5D5;*/
+	color: #eee;
+	text-decoration: none;
+	font-weight:bold;
+	margin:-3px 0 0;
+	position: relative;
+	/*background: url(/images/admin/menu_div.gif) no-repeat right 3px;*/
+    text-align: left;
+    font-size: 12px;
+    height: 18px;
+    font-family: Trebuchet MS;
+}
+* html .jqueryslidemenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+	display: inline-block;
+	
+}
+.jqueryslidemenu ul li a:hover, .jqueryslidemenu ul li:hover a, .jqueryslidemenu ul li a.selected {
+	background: #999 none;
+	color: #fff;
+}
+
+
+
+/*1st sub level menu*/
+.jqueryslidemenu ul li ul{
+	position: absolute;
+	left: 0;
+	display: block;
+	visibility: hidden;
+	background-color:#535353;
+	top: 30px;
+	padding:0;
+	z-index:9999;
+}
+/*Sub level menu list items (undo style from Top level List Items)*/
+.jqueryslidemenu ul li ul li{
+	display: list-item;
+	float: none;
+	text-transform: none;
+}
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.jqueryslidemenu ul li ul li ul{top:0;}
+
+/* Sub level menu links style */
+.jqueryslidemenu ul li ul li a, .jqueryslidemenu ul li:hover ul li a{
+	width: 180px; /*width of sub menus*/
+	padding: 8px 5px;
+	margin: 0;
+	color: #EEE;
+	border: 1px solid #444;
+	font-weight: normal;
+	background: #555;
+	padding:5px 5px 5px 20px;	
+	font-family:Arial;
+	font-size:11px;	
+	text-transform: uppercase;
+	font-family: Trebuchet MS;
+}
+
+.jqueryslidemenu ul li ul li a:hover {
+	background-color: #d8d8d8;	
+	border-color: #d8d8d8;
+	color: #000 !important;	
+	font-family:Arial;
+	font-size:11px;
+}
+/*first{border-width:1px 0 0 0; border-style:solid; border-color:#636363;}*/
+.downarrowclass{position:absolute;top:8px;left:3px;}
+.rightarrowclass{position:absolute;top:6px;left:5px;}
+.firstarrowclass{position:absolute;top:12px;left:5px;}
+
+.classCurrentMenu
+{
+    background: #535353 none !important;
+	color: #fff !important;
+}
+
+.jqueryslidemenu ul li.hightlight 
+{
+    background-color:#E14F4E;
+}

@@ -1,0 +1,102 @@
+﻿{#foreach $T.Items as lstReportList}
+<tr class="{COMMON.getRowStyle($T.lstReportList$index + 1)}">
+    <td style="text-align: center">
+        {$T.lstReportList$index + 1}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.DIVISION_CODE}_{$T.lstReportList.ISSUE_CODE}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.DIVISION_CODE}
+    </td>
+    <td style="text-align: left">
+        {#if $T.lstReportList.SUMMARY.length>20}
+        {$T.lstReportList.SUMMARY.substring(0, 40) + '... '}
+        {#else}
+        {$T.lstReportList.SUMMARY}
+        {#/if}
+    </td>
+    <td style="text-align: left">
+        {$T.lstReportList.ISSUE_STATUS}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.CURRENT_ASSIGNEE}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstReportList.CREATION_DATE==null}
+        &nbsp;
+        {#else}
+        {COMMON.jSonDateToString($T.lstReportList.CREATION_DATE, 8)}
+        {#/if}
+    </td>
+    <td style="text-align: center">
+        {#if $T.lstReportList.EST_DEADLINE==null}
+        &nbsp;
+        {#else}
+        {COMMON.jSonDateToString($T.lstReportList.EST_DEADLINE, 8)}
+        {#/if}
+    </td>
+    <td>
+        {#if $T.lstReportList.FINISHING_DATE==null ||$T.lstReportList.FINISHING_DATE.ToString("ddMMyyyy")< "01012017"}
+        &nbsp;
+        {#else}
+        {COMMON.jSonDateToString($T.lstReportList.FINISHING_DATE, 8)}
+        {#/if}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.PENDING_DAYS}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.PIC_BIC}
+    </td>
+    <td style="text-align: center">
+        {$T.lstReportList.PIC_BU}
+    </td>
+    <td>
+        {$T.lstReportList.UPDATING_STATUS}
+    </td>
+    <td style="text-align: center">        
+        {#if $T.lstReportList.LAST_UPDATED_DATE==null}
+        &nbsp;
+        {#else}
+        {COMMON.jSonDateToString($T.lstReportList.LAST_UPDATED_DATE, 8)}
+        {#/if}
+    </td>
+    <td>
+        {$T.lstReportList.LAST_UPDATED_BY}
+    </td>
+    <td>
+        <a class="aContextFunction" href="javascript:void(0)">Function</a>
+        <div class="divContextFunction">
+            <ul>
+                <li>
+                    <a href="javascript:void(0)" onclick="page_IssueTracking.functionOnItem(1,{$T.lstReportList.ISSUE_ID})">
+                        View
+                    </a>
+                </li>
+                {#if $T.account.DIVISION_ID ==$T.lstReportList.DIVISION || $T.account.DIVISION_ID ==22}
+                <li>
+                    <a href="javascript:void(0)" onclick="page_IssueTracking.functionOnItem(2,{$T.lstReportList.ISSUE_ID})">
+                        Edit
+                    </a>
+                </li>                
+                {#/if}
+                {#if $T.account.DIVISION_ID ==22}
+                {#if $T.lstReportList.UPDATING_STATUS != "Aprroved"}
+                <li class="liConfirmIssue">
+                    <a href="javascript:void(0)" onclick="page_IssueTracking.functionOnItem(5,{$T.lstReportList.ISSUE_ID})">
+                        Confirm
+                    </a>
+                </li>
+                {#/if}
+                <li class="liDeleteIssue">
+                    <a href="javascript:void(0)" onclick="page_IssueTracking.functionOnItem(3,{$T.lstReportList.ISSUE_ID})">
+                        Delete
+                    </a>
+                </li>
+                {#/if}
+            </ul>
+        </div>
+    </td>
+</tr>
+{#/for}
